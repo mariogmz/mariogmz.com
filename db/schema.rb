@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_184837) do
+ActiveRecord::Schema.define(version: 2021_01_31_190341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,21 @@ ActiveRecord::Schema.define(version: 2021_01_31_184837) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.text "summary"
+    t.string "about_title", default: "About me"
+    t.string "about_text"
+    t.string "services_title", default: "My Services"
+    t.string "projects_title", default: "Portfolio"
+    t.string "contact_title", default: "Contact me"
+    t.string "contact_number"
+    t.boolean "active", default: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_pages_on_profile_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -70,5 +85,6 @@ ActiveRecord::Schema.define(version: 2021_01_31_184837) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "pages", "profiles"
   add_foreign_key "profiles", "users"
 end
