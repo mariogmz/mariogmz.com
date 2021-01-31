@@ -1,0 +1,37 @@
+%h1 Listing pages
+
+%table
+  %thead
+    %tr
+      %th Summary
+      %th About title
+      %th About text
+      %th Services title
+      %th Projects title
+      %th Contact title
+      %th Contact number
+      %th Active
+      %th Profile
+      %th
+      %th
+      %th
+
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= page.summary
+        %td= page.about_title
+        %td= page.about_text
+        %td= page.services_title
+        %td= page.projects_title
+        %td= page.contact_title
+        %td= page.contact_number
+        %td= page.active
+        %td= page.profile
+        %td= link_to 'Show', page
+        %td= link_to 'Edit', edit_page_path(page)
+        %td= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Page', new_page_path

@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Summary:
+  = @page.summary
+%p
+  %b About title:
+  = @page.about_title
+%p
+  %b About text:
+  = @page.about_text
+%p
+  %b Services title:
+  = @page.services_title
+%p
+  %b Projects title:
+  = @page.projects_title
+%p
+  %b Contact title:
+  = @page.contact_title
+%p
+  %b Contact number:
+  = @page.contact_number
+%p
+  %b Active:
+  = @page.active
+%p
+  %b Profile:
+  = @page.profile
+
+= link_to 'Edit', edit_page_path(@page)
+\|
+= link_to 'Back', pages_path
