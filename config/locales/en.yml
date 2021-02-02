@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        page:
+          attributes:
+            active:
+              not_unique: should be unique, only can be one Page active per Profile

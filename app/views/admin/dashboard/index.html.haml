@@ -1,3 +1,6 @@
 .dashboard
   = link_to "Profile", edit_admin_profile_path
-  = link_to "Page", admin_pages_path
+  - if @page.present?
+    = link_to "Page", admin_page_path(@page)
+  - else
+    = link_to "Setup page", new_admin_page_path
