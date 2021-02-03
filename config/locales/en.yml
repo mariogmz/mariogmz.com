@@ -31,6 +31,10 @@
 
 en:
   activerecord:
+    attributes:
+      profile:
+        visa: Has VISA?
+        realocation: Available for realocation?
     errors:
       models:
         page:

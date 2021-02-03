@@ -5,24 +5,25 @@
       %ul
         - @profile.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :role
-    = f.text_field :role
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :visa
-    = f.check_box :visa
-  .field
-    = f.label :realocation
-    = f.check_box :realocation
-  .actions
-    = f.submit 'Save'
+  .flex.flex-col.space-y-6
+    .field
+      = f.label :first_name
+      = f.text_field :first_name
+    .field
+      = f.label :last_name
+      = f.text_field :last_name
+    .field
+      = f.label :role
+      = f.text_field :role
+    .field
+      = f.label :location
+      = f.text_field :location
+    .field.flex.space-x-3
+      = f.label :visa
+      = f.check_box :visa
+    .field.flex.space-x-3
+      = f.label :realocation
+      = f.check_box :realocation
+    .flex.justify-end.space-x-6
+      = f.submit "Save", class: "button secondary"
+      = yield

@@ -35,11 +35,11 @@ label {
   @apply font-bold flex items-center space-x-3;
 }
 
-label [type="checkbox"] {
-  @apply appearance-none h-6 w-6 border border-space-cadet rounded-md checked:bg-space-cadet checked:border-transparent focus:outline-none;
+[type="checkbox"] {
+  @apply appearance-none h-6 w-6 border border-space-cadet rounded-md checked:bg-space-cadet checked:border-transparent focus:outline-none cursor-pointer;
 }
 
-label [type="checkbox"]:checked {
+[type="checkbox"]:checked {
   background-image: url(../icons/tick.svg);
   background-size: 100%;
   background-position: 50%;
@@ -47,11 +47,15 @@ label [type="checkbox"]:checked {
 }
 
 .button {
-  @apply bg-amaranth-red text-white px-4 py-2 rounded-lg hover:bg-imperial-red hover:text-white shadow-lg;
+  @apply bg-amaranth-red text-white px-4 py-2 rounded-lg hover:bg-imperial-red hover:text-white cursor-pointer;
+}
+
+.button.secondary {
+  @apply bg-white text-amaranth-red border border-amaranth-red hover:text-imperial-red;
 }
 
 .button-icon {
-  @apply bg-amaranth-red text-white p-2 rounded-full hover:bg-imperial-red hover:text-white shadow-lg;
+  @apply bg-amaranth-red text-white p-2 rounded-full hover:bg-imperial-red hover:text-white cursor-pointer;
 }
 
 .card {
