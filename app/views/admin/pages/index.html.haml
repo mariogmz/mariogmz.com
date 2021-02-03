@@ -1,35 +1,39 @@
-%h1 Listing pages
+- if @page.present?
+  %h1 Active page
+  = @page
 
-%table
-  %thead
-    %tr
-      %th Summary
-      %th About title
-      %th About text
-      %th Services title
-      %th Projects title
-      %th Contact title
-      %th Contact number
-      %th Active
-      %th
-      %th
-      %th
-
-  %tbody
-    - @pages.each do |page|
+- if @pages.any?
+  %table
+    %thead
       %tr
-        %td= page.summary
-        %td= page.about_title
-        %td= page.about_text
-        %td= page.services_title
-        %td= page.projects_title
-        %td= page.contact_title
-        %td= page.contact_number
-        %td= page.active
-        %td= link_to 'Show', [:admin, page]
-        %td= link_to 'Edit', edit_admin_page_path(page)
-        %td= link_to 'Destroy', [:admin, page], method: :delete, data: { confirm: 'Are you sure?' }
+        %th Summary
+        %th About title
+        %th About text
+        %th Services title
+        %th Projects title
+        %th Contact title
+        %th Contact number
+        %th Active
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @pages.each do |page|
+        %tr
+          %td= page.summary
+          %td= page.about_title
+          %td= page.about_text
+          %td= page.services_title
+          %td= page.projects_title
+          %td= page.contact_title
+          %td= page.contact_number
+          %td= page.active
+          %td= link_to 'Show', [:admin, page]
+          %td= link_to 'Edit', edit_admin_page_path(page)
+          %td= link_to 'Destroy', [:admin, page], method: :delete, data: { confirm: 'Are you sure?' }
+- else
+  %p There's no pages yet, create one?
+
 
 = link_to 'New Page', new_admin_page_path

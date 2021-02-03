@@ -3,7 +3,9 @@ module Admin
     before_action :set_page, only: %i[ show edit update destroy ]
 
     def index
-      @pages = current_profile.pages.all
+      pages = current_profile.pages.order(active: :desc, updated_at: :desc)
+      @pages = pages.all
+      @page = @pages.active.first
     end
 
     def show
