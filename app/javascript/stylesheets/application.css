@@ -19,9 +19,9 @@ h2 {
 }
 
 a {
-  @apply text-amaranth-red hover:text-red-800;
+  @apply text-amaranth-red transition-colors hover:text-red-800;
 }
 
-a.dark {
+a.secondary {
   @apply text-white hover:text-manatee;
 }
