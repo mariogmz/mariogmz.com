@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply h-screen w-screen font-body bg-white text-space-cadet flex flex-col;
+  }
+}
+
+a {
+  @apply hover:text-manatee;
+}

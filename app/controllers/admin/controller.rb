@@ -1,5 +1,6 @@
 module Admin
   class Controller < ::ApplicationController
+    layout "admin"
     before_action :authenticate_user!
 
     protected

@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MariogmzCom
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_pack_tag "application", "data-turbo-track": "reload"
+    = stylesheet_pack_tag "application", "data-turbo-track": "reload"
+  %body{class: "md:flex-row"}
+    = render "admin/partials/navbar"
+    .content{class: "py-4 container md:w-3/4 lg:w-8/12"}
+      = yield

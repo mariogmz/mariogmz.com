@@ -12,6 +12,10 @@ module.exports = {
       },
       fontFamily: {
         body: ['Montserrat', 'sans-serif'],
+      },
+      container: {
+        center: true,
+        padding: '2rem'
       }
     }
   },

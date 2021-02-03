@@ -6,11 +6,8 @@
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbo-track': 'reload'
-  %body.bg-alice-blue.text-space-cadet.font-body
-    - flash.each do |type, msg|
-      .flash{class: type}
-        = msg
-    = yield
+  %body
+    = render "partials/flash"
+      = yield
