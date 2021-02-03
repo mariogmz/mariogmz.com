@@ -10,12 +10,17 @@
   }
 }
 
+h1,
+h2 {
+  @apply mb-4;
+}
+
 h1 {
   @apply text-4xl;
 }
 
 h2 {
-  @apply text-5xl;
+  @apply text-3xl;
 }
 
 a {
@@ -24,4 +29,31 @@ a {
 
 a.secondary {
   @apply text-white hover:text-manatee;
+}
+
+label {
+  @apply font-bold flex items-center space-x-3;
+}
+
+label [type="checkbox"] {
+  @apply appearance-none h-6 w-6 border border-space-cadet rounded-md checked:bg-space-cadet checked:border-transparent focus:outline-none;
+}
+
+label [type="checkbox"]:checked {
+  background-image: url(../icons/tick.svg);
+  background-size: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.button {
+  @apply bg-amaranth-red text-white px-4 py-2 rounded-lg hover:bg-imperial-red hover:text-white shadow-lg;
+}
+
+.button-icon {
+  @apply bg-amaranth-red text-white p-2 rounded-full hover:bg-imperial-red hover:text-white shadow-lg;
+}
+
+.card {
+  @apply flex flex-col space-y-6 max-w-xl bg-white rounded-xl shadow-md p-6;
 }

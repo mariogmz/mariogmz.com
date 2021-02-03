@@ -8,4 +8,6 @@ import "fonts/montserrat";
 Rails.start();
 ActiveStorage.start();
 
+require.context('../icons', true);
+
 require("stylesheets/application.css");

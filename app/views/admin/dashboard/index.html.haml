@@ -1,6 +1,19 @@
 .dashboard
-  = link_to "Profile", edit_admin_profile_path
-  - if @page.present?
-    = link_to "Page", admin_page_path(@page)
-  - else
-    = link_to "Setup page", new_admin_page_path
+  %h1.my-4.text-center.md:text-left= current_profile.full_name
+  .card
+    .field
+      %p.font-bold Email:
+      %span= current_user.email
+    .field
+      %p.font-bold Role:
+      %span= current_profile.role
+    .field
+      %p.font-bold Location:
+      %span= current_profile.location
+    .field
+      = label_tag :realocation do
+        %span Available for realocation?
+        = check_box_tag :relocation, true, current_profile.realocation, disabled: true
+    .flex.justify-end
+      = link_to edit_admin_profile_path, class: "button-icon" do
+        = icon "pencil"
