@@ -1,9 +1,9 @@
 module Admin
   class PagesController < Controller
-    before_action :set_page, only: %i[ show edit update destroy ]
+    before_action :set_page, only: %i[edit show update destroy]
 
     def index
-      pages = current_profile.pages.order(active: :desc, updated_at: :desc)
+      pages = current_profile.pages
       @pages = pages.all
       @page = @pages.active.first
     end

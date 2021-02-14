@@ -33,7 +33,5 @@
           %td= link_to 'Edit', edit_admin_page_path(page)
           %td= link_to 'Destroy', [:admin, page], method: :delete, data: { confirm: 'Are you sure?' }
 - else
-  %p There's no pages yet, create one?
-
-
-= link_to 'New Page', new_admin_page_path
+  .h-full.flex.items-center.justify-center
+    = link_to 'Create your first cover page', new_admin_page_path, class: "button max-w-md"
