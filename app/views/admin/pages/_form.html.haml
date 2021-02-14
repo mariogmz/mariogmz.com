@@ -5,30 +5,36 @@
       %ul
         - @page.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :summary
-    = f.text_area :summary
-  .field
-    = f.label :about_title
-    = f.text_field :about_title
-  .field
-    = f.label :about_text
-    = f.text_field :about_text
-  .field
-    = f.label :services_title
-    = f.text_field :services_title
-  .field
-    = f.label :projects_title
-    = f.text_field :projects_title
-  .field
-    = f.label :contact_title
-    = f.text_field :contact_title
-  .field
-    = f.label :contact_number
-    = f.text_field :contact_number
-  .field
-    = f.label :active
-    = f.check_box :active
-  .actions
-    = f.submit 'Save'
+  .flex.flex-col.divide-y.space-y-6
+    .space-y-6
+      .field
+        = f.label :summary
+        = f.text_area :summary
+    .pt-6.space-y-6
+      %h2 About
+      .field
+        = f.label "Title"
+        = f.text_field :about_title
+      .field
+        = f.label "Text"
+        = f.text_field :about_text
+    .pt-6.space-y-6
+      %h2 Titles
+      .field
+        = f.label "Services title text"
+        = f.text_field :services_title
+      .field
+        = f.label "Projects title text"
+        = f.text_field :projects_title
+      .field
+        = f.label "Contact title text"
+        = f.text_field :contact_title
+      .field
+        = f.label :contact_number
+        = f.text_field :contact_number
+    .pt-6.space-y-6
+      .field.inline
+        = f.label "Set as active page: "
+        = f.check_box :active
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"

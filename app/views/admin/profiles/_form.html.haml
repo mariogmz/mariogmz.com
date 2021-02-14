@@ -6,22 +6,22 @@
         - @profile.errors.full_messages.each do |message|
           %li= message
   .flex.flex-col.space-y-6
-    .field
-      = f.label :first_name
+    .field.responsive
+      = f.label :first_name, class: "md:w-1/4"
       = f.text_field :first_name
-    .field
-      = f.label :last_name
+    .field.responsive
+      = f.label :last_name, class: "md:w-1/4"
       = f.text_field :last_name
-    .field
-      = f.label :role
+    .field.responsive
+      = f.label :role, class: "md:w-1/4"
       = f.text_field :role
-    .field
-      = f.label :location
+    .field.responsive
+      = f.label :location, class: "md:w-1/4"
       = f.text_field :location
-    .field.flex.space-x-3
+    .field.inline
       = f.label :visa
       = f.check_box :visa
-    .field.flex.space-x-3
+    .field.inline
       = f.label :realocation
       = f.check_box :realocation
     .flex.justify-end.space-x-6

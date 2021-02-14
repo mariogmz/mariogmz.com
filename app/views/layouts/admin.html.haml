@@ -10,5 +10,6 @@
     = stylesheet_pack_tag "application", "data-turbo-track": "reload"
   %body{class: "bg-gray-50 md:flex-row"}
     = render "admin/partials/navbar"
-    .content{class: "py-4 container md:w-10/12 2xl:w-11/12 flex flex-col h-full"}
-      = yield
+    .content{class: "md:w-10/12 2xl:w-11/12 h-full overflow-y-auto"}
+      .container{class: "py-4 min-h-full flex flex-col"}
+        = yield

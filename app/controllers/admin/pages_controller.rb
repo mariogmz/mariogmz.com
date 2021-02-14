@@ -23,11 +23,9 @@ module Admin
 
       respond_to do |format|
         if @page.save
-          format.html { redirect_to [:admin, @page], notice: "Page was successfully created." }
-          format.json { render :show, status: :created, location: @page }
+          render :edit, notice: "Page was successfully created."
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @page.errors, status: :unprocessable_entity }
+          render :new, status: :unprocessable_entity
         end
       end
     end

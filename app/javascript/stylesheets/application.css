@@ -35,6 +35,12 @@ label {
   @apply font-bold flex items-center space-x-3;
 }
 
+[type="text"],
+textarea {
+  @apply border border-manatee rounded-md focus:border-space-cadet focus:outline-none;
+  @apply px-2 py-2 w-full md:text-sm;
+}
+
 [type="checkbox"] {
   @apply appearance-none h-6 w-6 border border-space-cadet rounded-md checked:bg-space-cadet checked:border-transparent focus:outline-none cursor-pointer;
 }
@@ -60,5 +66,21 @@ label {
 }
 
 .card {
-  @apply flex flex-col space-y-6 max-w-xl bg-white rounded-xl shadow-md p-6;
+  @apply flex flex-col space-y-6 w-full max-w-2xl bg-white rounded-xl shadow-md p-6;
+}
+
+.field {
+  @apply flex flex-col;
+}
+
+.field.inline {
+  @apply flex-row space-x-2 md:space-x-2;
+}
+
+.field.responsive {
+  @apply md:flex-row md:space-x-3;
+}
+
+.field label {
+  @apply md:whitespace-nowrap;
 }
