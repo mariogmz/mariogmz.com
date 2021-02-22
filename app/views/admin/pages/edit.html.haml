@@ -17,4 +17,12 @@
         %p.font-bold Add new
         = render "admin/services/form", page: @page, service: @new_service
     .card
-      %h1 Projects
+      %h2.mb-0
+        Projects
+        = turbo_stream_from :projects
+      = turbo_frame_tag :projects, class: "divide-y divide-manatee" do
+        - if @page.projects.reload.any?
+          = render @page.projects
+      = turbo_frame_tag :new_service_form do
+        %p.font-bold Add new
+        = render "admin/projects/form", page: @page, project: @new_project

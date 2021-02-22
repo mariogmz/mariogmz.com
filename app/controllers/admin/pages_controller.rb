@@ -17,6 +17,7 @@ module Admin
 
     def edit
       @new_service = @page.services.build
+      @new_project = @page.projects.build
     end
 
     def create
