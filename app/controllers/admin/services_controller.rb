@@ -1,5 +1,5 @@
 module Admin
-  class ServicesController < ApplicationController
+  class ServicesController < Controller
     before_action :set_page, only: %i[create]
     before_action :set_service, only: %i[show edit update destroy]
 

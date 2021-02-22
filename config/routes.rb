@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :profile
     resources :pages do
       resources :services, shallow: true, except: [:index]
+      resources :projects, shallow: true, except: [:index]
     end
   end
 

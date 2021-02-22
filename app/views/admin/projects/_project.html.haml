@@ -1,0 +1,7 @@
+= turbo_frame_tag dom_id(project), class: "flex justify-between items-center py-3 space-x-3" do
+  %p.flex-grow= project.name
+  %p.flex-grow= project.description
+  .flex.space-x-6
+    = link_to "Edit", edit_admin_project_path(project), class: "button secondary"
+    = link_to admin_project_path(project), remote: true, method: :delete, class: "button-icon" do
+      = icon "trash"

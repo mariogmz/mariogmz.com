@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+todo:
+  name: Todo App
+  url: https://mariogmz.com/projects/todoapp
+  description: Todo List
+  page: admin
+
+calculator:
+  name: Calculator
+  url: https://mariogmz.com/projects/calculator
+  description: Calculator
+  page: admin

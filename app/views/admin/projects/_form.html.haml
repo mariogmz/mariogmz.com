@@ -1,0 +1,18 @@
+= form_for [:admin, page, project], html: { class: "w-full" } do |f|
+  - if project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(project.errors.count, "error")} prohibited this project from being saved:"
+      %ul
+        - project.errors.full_messages.each do |message|
+          %li= message
+  .flex.flex-col.space-y-6.py-6
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :description
+      = f.text_area :description
+      = f.hidden_field :page_id
+    .flex.justify-end.space-x-6
+      = f.submit 'Save', class: "button secondary"
+      = yield
