@@ -16,29 +16,24 @@ module Admin
     end
 
     def edit
+      @new_service = @page.services.build
     end
 
     def create
       @page = current_profile.pages.new(page_params)
 
-      respond_to do |format|
-        if @page.save
-          render :edit, notice: "Page was successfully created."
-        else
-          render :new, status: :unprocessable_entity
-        end
+      if @page.save
+        redirect_to edit_admin_page_path(@page), notice: "Page was successfully created."
+      else
+        render :new, status: :unprocessable_entity
       end
     end
 
     def update
-      respond_to do |format|
-        if @page.update(page_params)
-          format.html { redirect_to [:admin, @page], notice: "Page was successfully updated." }
-          format.json { render :show, status: :ok, location: @page }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @page.errors, status: :unprocessable_entity }
-        end
+      if @page.update(page_params)
+        redirect_to [:admin, @page], notice: "Page was successfully updated."
+      else
+        render :edit, status: :unprocessable_entity
       end
     end
 
@@ -56,7 +51,7 @@ module Admin
       end
 
       def page_params
-        params.require(:page).permit(:summary, :about_title, :about_text, :services_title, :projects_title, :contact_title, :contact_number, :active)
+        params.require(:page).permit(:summary, :about_title, :services_title, :projects_title, :contact_title, :contact_number, :active)
       end
   end
 

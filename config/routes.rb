@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "dashboard#index", as: :dashboard
     resource :profile
-    resources :pages
+    resources :pages do
+      resources :services, shallow: true, except: [:index]
+    end
   end
 
   devise_for :users

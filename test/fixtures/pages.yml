@@ -3,7 +3,6 @@
 admin:
   summary: MyText
   about_title: MyString
-  about_text: MyString
   services_title: MyString
   projects_title: MyString
   contact_title: MyString
@@ -14,7 +13,6 @@ admin:
 admin_two:
   summary: MyText
   about_title: MyString
-  about_text: MyString
   services_title: MyString
   projects_title: MyString
   contact_title: MyString

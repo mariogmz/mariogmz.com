@@ -7,19 +7,15 @@
           %li= message
   .flex.flex-col.divide-y.space-y-6
     .space-y-6
-      .field
-        = f.label :summary
-        = f.text_area :summary
-    .pt-6.space-y-6
       %h2 About
       .field
         = f.label "Title"
         = f.text_field :about_title
       .field
-        = f.label "Text"
-        = f.text_field :about_text
+        = f.label :summary
+        = f.text_area :summary
     .pt-6.space-y-6
-      %h2 Titles
+      %h2 Sections
       .field
         = f.label "Services title text"
         = f.text_field :services_title

@@ -1,0 +1,7 @@
+= turbo_frame_tag dom_id(service), class: "flex justify-between items-center py-3 space-x-3" do
+  %p.flex-grow= service.name
+  %p.flex-grow= service.description
+  .flex.space-x-6
+    = link_to "Edit", edit_admin_service_path(service), class: "button secondary"
+    = link_to admin_service_path(service), remote: true, method: :delete, class: "button-icon" do
+      = icon "trash"

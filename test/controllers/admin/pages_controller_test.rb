@@ -20,10 +20,9 @@ module Admin
 
     test "should create page" do
       assert_difference('Page.count') do
-        post admin_pages_url, params: { page: { about_text: @page.about_text, about_title: @page.about_title, active: @page.active, contact_number: @page.contact_number, contact_title: @page.contact_title, profile_id: @page.profile_id, projects_title: @page.projects_title, services_title: @page.services_title, summary: @page.summary } }
+        post admin_pages_url, params: { page: { about_title: @page.about_title, active: @page.active, contact_number: @page.contact_number, contact_title: @page.contact_title, profile_id: @page.profile_id, projects_title: @page.projects_title, services_title: @page.services_title, summary: @page.summary } }
       end
-
-      assert_redirected_to admin_page_url(Page.last)
+      assert_redirected_to edit_admin_page_url(Page.first)
     end
 
     test "should show page" do
@@ -37,7 +36,7 @@ module Admin
     end
 
     test "should update page" do
-      patch admin_page_url(@page), params: { page: { about_text: @page.about_text, about_title: @page.about_title, active: @page.active, contact_number: @page.contact_number, contact_title: @page.contact_title, profile_id: @page.profile_id, projects_title: @page.projects_title, services_title: @page.services_title, summary: @page.summary } }
+      patch admin_page_url(@page), params: { page: { about_title: @page.about_title, active: @page.active, contact_number: @page.contact_number, contact_title: @page.contact_title, profile_id: @page.profile_id, projects_title: @page.projects_title, services_title: @page.services_title, summary: @page.summary } }
       assert_redirected_to admin_page_url(@page)
     end
 
