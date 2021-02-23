@@ -22,7 +22,7 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # Use Active Storage variant
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 gem "aws-sdk-s3", require: false
 
@@ -58,5 +58,3 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "tailwindcss-rails", "~> 0.3.1"
 
 gem "inline_svg", "~> 1.7"
-
-gem "image_processing", "~> 1.12"
