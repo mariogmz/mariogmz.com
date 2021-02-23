@@ -24,6 +24,8 @@ gem "redis", "~> 4.0"
 # Use Active Storage variant
 # gem "image_processing", "~> 1.2"
 
+gem "aws-sdk-s3", require: false
+
 gem "haml"
 gem "haml-rails"
 

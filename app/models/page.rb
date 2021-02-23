@@ -7,6 +7,10 @@ class Page < ApplicationRecord
 
   scope :active, -> { where(active: true) }
 
+  has_one_attached :hero_image
+  has_one_attached :about_image
+  has_one_attached :contact_image
+
   def active_page
     active.first
   end
