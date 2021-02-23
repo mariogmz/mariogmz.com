@@ -30,8 +30,8 @@ class CustomBuilder < ActionView::Helpers::FormBuilder
   end
 
   def image_background(attachment)
-    image_url = attachment.variant(resize_to_limit: [400, 300]).processed
-    style = "background-image: url(#{@template.rails_representation_url(image_url)});"
+    image_url = attachment.variant(resize_to_limit: [400, 300]).processed.url
+    style = "background-image: url(#{image_url});"
     @template.tag.div(style: style, class: "h-full w-full bg-cover bg-no-repeat bg-center")
   end
 end
