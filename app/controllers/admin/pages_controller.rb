@@ -52,7 +52,18 @@ module Admin
       end
 
       def page_params
-        params.require(:page).permit(:summary, :about_title, :services_title, :projects_title, :contact_title, :contact_number, :active)
+        params.require(:page).permit(
+          :summary,
+          :about_title,
+          :services_title,
+          :projects_title,
+          :contact_title,
+          :contact_number,
+          :active,
+          :hero_image,
+          :about_image,
+          :contact_image
+        )
       end
   end
 

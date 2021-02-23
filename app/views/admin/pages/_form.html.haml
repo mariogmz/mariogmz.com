@@ -1,4 +1,4 @@
-= form_for [:admin, @page] do |f|
+= form_for [:admin, @page], builder: CustomBuilder do |f|
   - if @page.errors.any?
     #error_explanation
       %h2= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
@@ -34,3 +34,15 @@
         = f.check_box :active
       .flex.justify-end.space-x-6.lg:justify-center.lg:space-x-0
         = f.submit "Save", class: "button secondary"
+  %div.mt-6
+    %h2 Images
+    .flex.flex-col.space-y-6.lg:flex-row.lg:justify-center.lg:space-y-0.lg:space-x-6
+      .field
+        = f.label "Hero"
+        = f.file_field :hero_image
+      .field
+        = f.label "About"
+        = f.file_field :about_image
+      .field
+        = f.label "Contact"
+        = f.file_field :contact_image
