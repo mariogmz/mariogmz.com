@@ -5,16 +5,16 @@
       %ul
         - @page.errors.full_messages.each do |message|
           %li= message
-  .flex.flex-col.divide-y.space-y-6
-    .space-y-6
+  .flex.flex-col.flex-grow.divide-y.space-y-6.lg:flex-row.lg:divide-y-0.lg:space-y-0.lg:space-x-6.lg:justify-between
+    .space-y-6.flex-grow
       %h2 About
       .field
         = f.label "Title"
         = f.text_field :about_title
       .field
         = f.label :summary
-        = f.text_area :summary
-    .pt-6.space-y-6
+        = f.text_area :summary, rows: 10
+    .pt-6.lg:pt-0.space-y-6.flex-grow
       %h2 Sections
       .field
         = f.label "Services title text"
@@ -28,9 +28,9 @@
       .field
         = f.label :contact_number
         = f.text_field :contact_number
-    .pt-6.space-y-6
+    .pt-6.space-y-6.lg:pt-0.lg:flex.lg:flex-col.lg:justify-center
       .field.inline
         = f.label "Set as active page: "
         = f.check_box :active
-      .flex.justify-end.space-x-6
+      .flex.justify-end.space-x-6.lg:justify-center.lg:space-x-0
         = f.submit "Save", class: "button secondary"

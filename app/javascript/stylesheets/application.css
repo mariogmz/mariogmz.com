@@ -67,7 +67,7 @@ textarea {
 }
 
 .card {
-  @apply flex flex-col space-y-6 w-full max-w-2xl bg-white rounded-xl shadow-md p-6;
+  @apply flex flex-col space-y-6 w-full max-w-6xl bg-white rounded-xl shadow-md p-6;
 }
 
 .field {

@@ -11,7 +11,7 @@
       = f.text_field :name
     .field
       = f.label :description
-      = f.text_area :description
+      = f.text_area :description, rows: 5 
       = f.hidden_field :page_id
     .flex.justify-end.space-x-6
       = f.submit 'Save', class: "button secondary"

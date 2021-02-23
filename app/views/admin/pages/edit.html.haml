@@ -1,8 +1,9 @@
-.grid.grid-cols-1.xl:grid-cols-2.gap-6.justify-items-center
+-# .grid.grid-cols-1.xl:grid-cols-2.gap-6.justify-items-center
+.flex.flex-col.items-center.space-y-6
   .card
     = render "form"
-  .w-full.max-w-2xl.max-h-full.overflow-y-auto.space-y-6
-    .card
+  .w-full.flex.flex-col.space-y-6.xl:flex-row.xl:space-y-0.xl:space-x-6.xl:items-start
+    .card.flex-grow
       %h2.mb-0
         Services
         = turbo_stream_from :services
@@ -16,7 +17,7 @@
       = turbo_frame_tag :new_service_form do
         %p.font-bold Add new
         = render "admin/services/form", page: @page, service: @new_service
-    .card
+    .card.flex-grow
       %h2.mb-0
         Projects
         = turbo_stream_from :projects
