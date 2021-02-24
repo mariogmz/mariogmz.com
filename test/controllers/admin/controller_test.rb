@@ -8,5 +8,11 @@ module Admin
       @user = users(:admin)
       sign_in(@user)
     end
+
+    protected
+
+    def test_image
+      fixture_file_upload(Rails.root.join("public", "apple-touch-icon.png"), "image/png")
+    end
   end
 end

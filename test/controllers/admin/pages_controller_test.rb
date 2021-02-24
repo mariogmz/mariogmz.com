@@ -37,7 +37,7 @@ module Admin
 
     test "should update page" do
       patch admin_page_url(@page), params: { page: { about_title: @page.about_title, active: @page.active, contact_number: @page.contact_number, contact_title: @page.contact_title, profile_id: @page.profile_id, projects_title: @page.projects_title, services_title: @page.services_title, summary: @page.summary } }
-      assert_redirected_to admin_page_url(@page)
+      assert_redirected_to edit_admin_page_url(@page)
     end
 
     test "should destroy page" do
@@ -46,6 +46,16 @@ module Admin
       end
 
       assert_redirected_to admin_pages_url
+    end
+
+    test "should purge an image" do
+      delete admin_delete_page_image_url(@page, :hero_image)
+      assert_response :no_content
+
+      @page.hero_image.attach test_image
+      assert_difference("ActiveStorage::Attachment.count", -1) do
+        delete admin_delete_page_image_url(@page, :hero_image)
+      end
     end
   end
 

@@ -1,6 +1,6 @@
 module Admin
   class PagesController < Controller
-    before_action :set_page, only: %i[edit show update destroy]
+    before_action :set_page, only: %i[edit show update destroy destroy_image]
 
     def index
       pages = current_profile.pages
@@ -32,7 +32,7 @@ module Admin
 
     def update
       if @page.update(page_params)
-        redirect_to [:admin, @page], notice: "Page was successfully updated."
+        redirect_to edit_admin_page_path(@page)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -43,6 +43,16 @@ module Admin
       respond_to do |format|
         format.html { redirect_to admin_pages_url, notice: "Page was successfully destroyed." }
         format.json { head :no_content }
+      end
+    end
+
+    def destroy_image
+      image = @page.send(params[:image])
+      if image.attached?
+        image.purge
+        redirect_to edit_admin_page_path(@page)
+      else
+        head :no_content
       end
     end
 
