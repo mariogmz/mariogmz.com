@@ -4,10 +4,12 @@ Rails.application.routes.draw do
     resource :profile
 
     resources :pages do
-      resources :services, shallow: true, except: [:index]
+      resources :services, shallow: true, except: [:index] do
+        delete "image", action: :purge_image
+      end
       resources :projects, shallow: true, except: [:index]
+      delete "image/:name", action: :purge_image, as: :delete_image
     end
-    delete ":id/:image", to: "pages#destroy_image", as: :delete_page_image
   end
 
   devise_for :users

@@ -1,6 +1,6 @@
 module Admin
   class PagesController < Controller
-    before_action :set_page, only: %i[edit show update destroy destroy_image]
+    before_action :set_page, only: %i[edit show update destroy purge_image]
 
     def index
       pages = current_profile.pages
@@ -46,8 +46,8 @@ module Admin
       end
     end
 
-    def destroy_image
-      image = @page.send(params[:image])
+    def purge_image
+      image = @page.send(params[:name])
       if image.attached?
         image.purge
         redirect_to edit_admin_page_path(@page)
@@ -58,7 +58,7 @@ module Admin
 
     private
       def set_page
-        @page = current_user.profile.pages.find(params[:id])
+        @page = current_user.profile.pages.find(params[:id] || params[:page_id])
       end
 
       def page_params

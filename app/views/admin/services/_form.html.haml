@@ -1,4 +1,4 @@
-= form_for [:admin, page, service], html: { class: "w-full" } do |f|
+= form_for [:admin, page, service], builder: CustomBuilder, html: { class: "w-full" } do |f|
   - if service.errors.any?
     #error_explanation
       %h2= "#{pluralize(service.errors.count, "error")} prohibited this service from being saved:"
@@ -11,8 +11,17 @@
       = f.text_field :name
     .field
       = f.label :description
-      = f.text_area :description, rows: 5 
+      = f.text_area :description, rows: 5
       = f.hidden_field :page_id
+    .field
+      .flex.justify-between.h-10
+        = f.label :image
+        - if service.image.attached?
+          = link_to admin_service_image_path(service),
+                    class: "button-icon inline-block",
+                    method: :delete do
+            = icon "trash"
+      = f.file_field :image, accept: "image/*"
     .flex.justify-end.space-x-6
       = f.submit 'Save', class: "button secondary"
       = yield

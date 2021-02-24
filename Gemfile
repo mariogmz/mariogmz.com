@@ -5,7 +5,7 @@ ruby "3.0.0"
 
 gem "devise"
 gem "hotwire-rails"
-gem "rails", "~> 6.1.1"
+gem "rails", "~> 6.1.3"
 gem "pg"
 gem "puma", "~> 5.0"
 # Use SCSS for stylesheets

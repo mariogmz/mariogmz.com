@@ -49,12 +49,12 @@ module Admin
     end
 
     test "should purge an image" do
-      delete admin_delete_page_image_url(@page, :hero_image)
+      delete admin_page_delete_image_url(@page, :hero_image)
       assert_response :no_content
 
       @page.hero_image.attach test_image
       assert_difference("ActiveStorage::Attachment.count", -1) do
-        delete admin_delete_page_image_url(@page, :hero_image)
+        delete admin_page_delete_image_url(@page, :hero_image)
       end
     end
   end

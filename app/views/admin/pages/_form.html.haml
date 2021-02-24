@@ -42,20 +42,20 @@
           .flex.justify-between.mb-3.h-10
             = f.label "Hero"
             - if @page.hero_image.attached?
-              = link_to admin_delete_page_image_path(@page, :hero_image), class: "button-icon inline-block", method: :delete do
+              = link_to admin_page_delete_image_path(@page, :hero_image), class: "button-icon inline-block", method: :delete do
                 = icon "trash"
           = f.file_field :hero_image, accept: "image/*"
         .field
           .flex.justify-between.mb-3.h-10
             = f.label "About"
             - if @page.about_image.attached?
-              = link_to admin_delete_page_image_path(@page, :about_image), class: "button-icon inline-block", method: :delete do
+              = link_to admin_page_delete_image_path(@page, :about_image), class: "button-icon inline-block", method: :delete do
                 = icon "trash"
           = f.file_field :about_image, accept: "image/*"
         .field
           .flex.justify-between.mb-3.h-10
             = f.label "Contact"
             - if @page.contact_image.attached?
-              = link_to admin_delete_page_image_path(@page, :contact_image), class: "button-icon inline-block", method: :delete do
+              = link_to admin_page_delete_image_path(@page, :contact_image), class: "button-icon inline-block", method: :delete do
                 = icon "trash"
           = f.file_field :contact_image, accept: "image/*"

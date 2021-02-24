@@ -32,7 +32,7 @@ class CustomBuilder < ActionView::Helpers::FormBuilder
   end
 
   def image_background(attachment)
-    image_url = attachment.variant(resize_to_limit: [400, 300]).processed.url
+    image_url = @template.url_for(attachment.variant(resize_to_limit: [400, 300]))
     style = "background-image: url(#{image_url});"
     @template.tag.div(style: style, class: "h-full w-full bg-contain bg-no-repeat bg-center")
   end
