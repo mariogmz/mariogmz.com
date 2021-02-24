@@ -14,13 +14,7 @@
       = f.text_area :description, rows: 5
       = f.hidden_field :page_id
     .field
-      .flex.justify-between.h-10
-        = f.label :image
-        - if service.image.attached?
-          = link_to admin_service_image_path(service),
-                    class: "button-icon inline-block",
-                    method: :delete do
-            = icon "trash"
+      = f.label :image
       = f.file_field :image, accept: "image/*"
     .flex.justify-end.space-x-6
       = f.submit 'Save', class: "button secondary"

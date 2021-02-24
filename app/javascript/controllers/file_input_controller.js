@@ -1,11 +1,16 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['input', 'background', 'instructions'];
+  static targets = ['input', 'background', 'instructions', 'removeButton', 'deleteField'];
 
   changeBackground() {
     this.loadImage();
-    this.removeInstructions();
+  }
+
+  removeImage() {
+    this.inputTarget.value = '';
+    this.showInstructions();
+    this.deleteFieldTarget.value = true;
   }
 
   loadImage() {
@@ -17,12 +22,23 @@ export default class extends Controller {
       reader.onload = () => {
         background.style.backgroundImage = `url(${reader.result})`;
         background.classList.add('bg-contain', 'bg-no-repeat', 'bg-contain', 'bg-center');
+        this.removeInstructions();
       }
       reader.readAsDataURL(input.files[0]);
+    } else {
+      this.showInstructions();
     }
   }
 
   removeInstructions() {
+    this.removeButtonTarget.classList.remove('hidden');
     this.instructionsTarget.classList.add('hidden');
+  }
+
+  showInstructions() {
+    this.backgroundTarget.classList.remove('bg-contain', 'bg-no-repeat', 'bg-contain', 'bg-center');
+    this.backgroundTarget.style.backgroundImage = '';
+    this.instructionsTarget.classList.remove('hidden');
+    this.removeButtonTarget.classList.add('hidden');
   }
 }

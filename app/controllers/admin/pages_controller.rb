@@ -32,6 +32,7 @@ module Admin
 
     def update
       if @page.update(page_params)
+        purge_images
         redirect_to edit_admin_page_path(@page)
       else
         render :edit, status: :unprocessable_entity
@@ -46,19 +47,9 @@ module Admin
       end
     end
 
-    def purge_image
-      image = @page.send(params[:name])
-      if image.attached?
-        image.purge
-        redirect_to edit_admin_page_path(@page)
-      else
-        head :no_content
-      end
-    end
-
     private
       def set_page
-        @page = current_user.profile.pages.find(params[:id] || params[:page_id])
+        @page = current_user.profile.pages.find(params[:id])
       end
 
       def page_params
@@ -74,6 +65,12 @@ module Admin
           :about_image,
           :contact_image
         )
+      end
+
+      def purge_images
+        @page.hero_image.purge if params.require(:page)[:hero_image_delete].present?
+        @page.about_image.purge if params.require(:page)[:about_image_delete].present?
+        @page.contact_image.purge if params.require(:page)[:contact_image_delete].present?
       end
   end
 

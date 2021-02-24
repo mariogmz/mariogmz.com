@@ -38,13 +38,10 @@ module Admin
       assert_response :no_content
     end
 
-    test "should purge an image" do
-      delete admin_service_image_url(@service)
-      assert_response :no_content
-
+    test "should purge service images" do
       @service.image.attach test_image
       assert_difference("ActiveStorage::Attachment.count", -1) do
-        delete admin_service_image_url(@service)
+        patch admin_service_url(@service), params: { service: { image_delete: true } }
       end
     end
   end

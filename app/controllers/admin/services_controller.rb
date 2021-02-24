@@ -21,6 +21,7 @@ module Admin
 
     def update
       if @service.update(service_params)
+        @service.image.purge if image_purge?
         redirect_to [:admin, @service]
       else
         render :edit, status: :unprocessable_entity
@@ -32,22 +33,17 @@ module Admin
       head :no_content
     end
 
-    def purge_image
-      if @service.image.attached?
-        @service.image.purge
-        render turbo_stream: turbo_stream.replace(@service, partial: "admin/services/form", locals: { page: nil, service: @service })
-      else
-        head :no_content
-      end
-    end
-
     private
       def set_service
-        @service = Service.find(params[:id] || params[:service_id])
+        @service = Service.find(params[:id])
       end
 
       def service_params
         params.require(:service).permit(:name, :description, :image, :page_id)
+      end
+
+      def image_purge?
+        params.require(:service)[:image_delete].present?
       end
 
       def set_page

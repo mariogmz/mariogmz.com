@@ -48,13 +48,12 @@ module Admin
       assert_redirected_to admin_pages_url
     end
 
-    test "should purge an image" do
-      delete admin_page_delete_image_url(@page, :hero_image)
-      assert_response :no_content
-
+    test "should purge images" do
       @page.hero_image.attach test_image
-      assert_difference("ActiveStorage::Attachment.count", -1) do
-        delete admin_page_delete_image_url(@page, :hero_image)
+      @page.about_image.attach test_image
+      @page.contact_image.attach test_image
+      assert_difference("ActiveStorage::Attachment.count", -3) do
+        patch admin_page_url(@page, params: { page: { hero_image_delete: true, about_image_delete: true, contact_image_delete: true }})
       end
     end
   end
