@@ -20,8 +20,8 @@ module Admin
     end
 
     def update
+      @service.image.purge if image_purge?
       if @service.update(service_params)
-        @service.image.purge if image_purge?
         redirect_to [:admin, @service]
       else
         render :edit, status: :unprocessable_entity
