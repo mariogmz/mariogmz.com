@@ -9,7 +9,8 @@
     %p.space-x-3
       %span.font-bold Description:
       %span= project.description
-  .flex.items-center.space-x-6.flex-end
-    = link_to "Edit", edit_admin_project_path(project), class: "button secondary"
+  .flex.items-center.space-x-3.flex-end
+    = link_to edit_admin_project_path(project), class: "button-icon" do
+      = icon "pencil"
     = link_to admin_project_path(project), remote: true, method: :delete, class: "button-icon" do
       = icon "trash"

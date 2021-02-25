@@ -3,7 +3,8 @@
   %p.flex-grow= service.description
   - if service.image.attached? && service.image.representable?
     = image_tag url_for(service.image.variant(resize_to_limit: [100, 100]))
-  .flex.space-x-6
-    = link_to "Edit", edit_admin_service_path(service), class: "button secondary"
+  .flex.space-x-3
+    = link_to edit_admin_service_path(service), class: "button-icon" do
+      = icon "pencil"
     = link_to admin_service_path(service), remote: true, method: :delete, class: "button-icon" do
       = icon "trash"
