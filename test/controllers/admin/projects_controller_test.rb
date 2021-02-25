@@ -41,5 +41,12 @@ module Admin
 
       assert_response :no_content
     end
+
+    test "should purge images" do
+      @project.image.attach test_image
+      assert_difference("ActiveStorage::Attachment.count", -1) do
+        patch admin_project_url(@project), params: { project: { image_delete: true } }
+      end
+    end
   end
 end

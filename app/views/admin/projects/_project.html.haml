@@ -9,6 +9,10 @@
     %p.space-x-3
       %span.font-bold Description:
       %span= project.description
+    - if project.image.attached? && project.image.representable?
+      .space-x-3
+        %p.font-bold Image:
+        = image_tag url_for(project.image.variant(resize_to_limit: [100, 100]))
   .flex.items-center.space-x-3.flex-end
     = link_to edit_admin_project_path(project), class: "button-icon" do
       = icon "pencil"

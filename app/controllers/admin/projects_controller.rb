@@ -20,6 +20,7 @@ module Admin
     end
 
     def update
+      @project.image.purge if image_purge?
       if @project.update(project_params)
         redirect_to [:admin, @project]
       else
@@ -38,7 +39,11 @@ module Admin
       end
 
       def project_params
-        params.require(:project).permit(:name, :url, :description, :page_id)
+        params.require(:project).permit(:name, :url, :description, :image, :page_id)
+      end
+
+      def image_purge?
+        params.require(:project)[:image_delete].present?
       end
 
       def set_page
