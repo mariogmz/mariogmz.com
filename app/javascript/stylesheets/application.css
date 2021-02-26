@@ -37,7 +37,8 @@ label {
 
 [type="text"],
 [type="url"],
-textarea {
+textarea,
+select {
   @apply border border-manatee rounded-md focus:border-space-cadet focus:outline-none;
   @apply px-2 py-2 w-full md:text-sm;
 }

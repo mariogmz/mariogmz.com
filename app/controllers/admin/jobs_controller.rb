@@ -1,24 +1,20 @@
 module Admin
-  class JobsController < ApplicationController
+  class JobsController < Controller
     before_action :set_job, only: %i[ show edit update destroy ]
 
     def show
-    end
-
-    def new
-      @job = Job.new
     end
 
     def edit
     end
 
     def create
-      @job = Job.new(job_params)
+      @job = current_profile.jobs.new(job_params)
 
       if @job.save
-        redirect_to [:admin, @job], notice: "Job was successfully created."
+        redirect_to admin_experience_path, notice: "Job was successfully created."
       else
-        render :new, status: :unprocessable_entity
+        render :edit, status: :unprocessable_entity
       end
     end
 
@@ -37,11 +33,11 @@ module Admin
 
     private
       def set_job
-        @job = Job.find(params[:id])
+        @job = current_profile.jobs.find(params[:id])
       end
 
       def job_params
-        params.require(:job).permit(:company_name, :role, :description, :start_date, :end_date, :profile_id)
+        params.require(:job).permit(:company_name, :role, :description, :start_date, :end_date)
       end
   end
 

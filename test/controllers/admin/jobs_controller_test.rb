@@ -1,43 +1,40 @@
 require "test_helper"
 
-class JobsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @job = jobs(:one)
-  end
-
-  test "should get new" do
-    get new_admin_job_url
-    assert_response :success
-  end
-
-  test "should create job" do
-    assert_difference('Job.count') do
-      post jobs_url, params: { job: { company_name: @job.company_name, description: @job.description, end_date: @job.end_date, profile_id: @job.profile_id, role: @job.role, start_date: @job.start_date } }
+module Admin
+  class JobsControllerTest < ControllerTest
+    setup do
+      @job = jobs(:current)
     end
 
-    assert_redirected_to admin_job_url(Job.last)
-  end
+    test "should create job" do
+      assert_difference ->{ signed_profile.jobs.count } do
+        post admin_jobs_url, params: { job: { company_name: @job.company_name, description: @job.description, end_date: @job.end_date, role: @job.role, start_date: @job.start_date } }
+      end
 
-  test "should show job" do
-    get admin_job_url(@job)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_admin_job_url(@job)
-    assert_response :success
-  end
-
-  test "should update job" do
-    patch admin_job_url(@job), params: { job: { company_name: @job.company_name, description: @job.description, end_date: @job.end_date, profile_id: @job.profile_id, role: @job.role, start_date: @job.start_date } }
-    assert_redirected_to admin_job_url(@job)
-  end
-
-  test "should destroy job" do
-    assert_difference('Job.count', -1) do
-      delete admin_job_url(@job)
+      assert_redirected_to admin_experience_url
     end
 
-    assert_redirected_to jobs_url
+    test "should show job" do
+      get admin_job_url(@job)
+      assert_response :success
+    end
+
+    test "should get edit" do
+      get edit_admin_job_url(@job)
+      assert_response :success
+    end
+
+    test "should update job" do
+      patch admin_job_url(@job), params: { job: { company_name: @job.company_name, description: @job.description, end_date: @job.end_date, role: @job.role, start_date: @job.start_date } }
+      assert_redirected_to admin_job_url(@job)
+    end
+
+    test "should destroy job" do
+      assert_difference ->{ signed_profile.jobs.count }, -1 do
+        delete admin_job_url(@job)
+      end
+
+      assert_response :success
+    end
   end
 end

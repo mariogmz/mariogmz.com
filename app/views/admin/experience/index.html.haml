@@ -1,0 +1,17 @@
+%h1 Experience
+= turbo_stream_from :jobs
+.flex.flex-col.items-center.space-y-6.2xl:flex-row.2xl:items-start.2xl:space-y-0.2xl:space-x-6
+  .w-full.space-y-6
+    .card
+      %h2.mb-0 Jobs
+      = turbo_frame_tag :jobs, class: "divide-y" do
+        = render @jobs
+      %h2 Add new
+      = render "admin/jobs/form", job: @new_job
+    .card
+      %h2.mb-0 Skills
+  .w-full.space-y-6
+    .card
+      %h2.mb-0 Soft Skills
+    .card
+      %h2.mb-0 Languages

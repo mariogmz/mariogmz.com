@@ -1,0 +1,27 @@
+= turbo_frame_tag dom_id(job) do
+  = form_for [:admin, job], id: dom_id(job), builder: CustomBuilder, html: { class: "w-full" } do |f|
+    - if job.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(job.errors.count, "error")} prohibited this job from being saved:"
+        %ul
+          - job.errors.full_messages.each do |message|
+            %li= message
+    .flex.flex-col.space-y-6.py-6
+      .field
+        = f.label :company_name
+        = f.text_field :company_name
+      .field
+        = f.label :role
+        = f.text_field :role
+      .field
+        = f.label :description
+        = f.text_area :description
+      .field.inline
+        = f.label :start_date
+        = f.date_select :start_date, default: 1.year.ago
+      .field.inline
+        = f.label :end_date
+        = f.date_select :end_date
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"
+        = yield

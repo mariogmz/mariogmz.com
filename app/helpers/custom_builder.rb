@@ -12,6 +12,11 @@ class CustomBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  def date_select(method, options = {}, html_options = {})
+    options[:order] = %i[day month year]
+    super(method, options, html_options)
+  end
+
   private
 
   def file_field_background(attachment)

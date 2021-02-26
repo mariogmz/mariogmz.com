@@ -11,6 +11,10 @@ module Admin
 
     protected
 
+    def signed_profile
+      @user.profile
+    end
+
     def test_image
       fixture_file_upload(Rails.root.join("public", "apple-touch-icon.png"), "image/png")
     end

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     end
 
     scope "/experience" do
-      resources :jobs, shallow: true, except: [:index]
+      root to: "experience#index", as: :experience
+      resources :jobs, shallow: true, except: %i[:new :index]
     end
   end
 
