@@ -9,7 +9,7 @@
     %p.space-x-3
       %span.font-bold Description:
       %span= project.description
-    - if project.image.attached? && project.image.representable?
+    - if project.image.attached?
       .space-x-3
         %p.font-bold Image:
         = image_tag url_for(project.image.variant(resize_to_limit: [100, 100]))

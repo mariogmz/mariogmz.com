@@ -1,7 +1,7 @@
 = turbo_frame_tag dom_id(service), class: "flex justify-between items-center py-3 space-x-3" do
   %p.flex-grow= service.name
   %p.flex-grow= service.description
-  - if service.image.attached? && service.image.representable?
+  - if service.image.attached?
     = image_tag url_for(service.image.variant(resize_to_limit: [100, 100]))
   .flex.space-x-3
     = link_to edit_admin_service_path(service), class: "button-icon" do

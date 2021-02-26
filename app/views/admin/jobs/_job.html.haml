@@ -1,23 +1,27 @@
 = turbo_frame_tag dom_id(job), class: "flex justify-between space-x-6 py-3" do
-  %div
-    %p.space-x-3
-      %span.font-bold Company name:
-      %span= job.company_name
-    %p.space-x-3
-      %span.font-bold Role:
-      %span= job.role
-    %p.space-x-3
-      %span.font-bold Description:
-      %span= job.description
-    .flex.justify-center.space-x-6.mt-3
-      %div
-        %p.font-bold Start date
-        %p= job.start_date
-      %div
-        %p.font-bold End date
-        %p= job.end_date
-  .flex.items-center.space-x-3.flex-end
-    = link_to edit_admin_job_path(job), class: "button-icon" do
-      = icon "pencil"
-    = link_to admin_job_path(job), remote: true, method: :delete, class: "button-icon" do
-      = icon "trash"
+  .flex.flex-col.w-full.space-y-3.items-center.md:flex-row.md:space-y-0.md:space-x-6.md:justify-between.md:justify-start
+    .text-center
+      - if job.company_logo.attached?
+        = rounded_image_tag url_for(job.company_logo.variant(resize_to_limit: [128, 128]))
+    .flex-grow
+      %p.space-x-3
+        %span.font-bold Company name:
+        %span= job.company_name
+      %p.space-x-3
+        %span.font-bold Role:
+        %span= job.role
+      %p.space-x-3
+        %span.font-bold Description:
+        %span= job.description
+      .flex.space-x-6.mt-3
+        %div
+          %p.font-bold Start date
+          %p= job.start_date
+        %div
+          %p.font-bold End date
+          %p= job.end_date
+    .flex.items-center.space-x-3.flex-end
+      = link_to edit_admin_job_path(job), class: "button-icon" do
+        = icon "pencil"
+      = link_to admin_job_path(job), remote: true, method: :delete, class: "button-icon" do
+        = icon "trash"

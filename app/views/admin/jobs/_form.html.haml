@@ -22,6 +22,9 @@
       .field.inline
         = f.label :end_date
         = f.date_select :end_date
+      .field
+        = f.label :company_logo
+        = f.file_field :company_logo, accept: "image/*"
       .flex.justify-end.space-x-6
         = f.submit "Save", class: "button secondary"
         = yield

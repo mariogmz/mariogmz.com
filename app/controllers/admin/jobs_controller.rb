@@ -37,7 +37,7 @@ module Admin
       end
 
       def job_params
-        params.require(:job).permit(:company_name, :role, :description, :start_date, :end_date)
+        params.require(:job).permit(:company_name, :role, :description, :start_date, :end_date, :company_logo)
       end
   end
 
