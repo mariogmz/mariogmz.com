@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       resources :projects, shallow: true, except: [:index]
       delete "image/:name", action: :purge_image, as: :delete_image
     end
+
+    scope "/experience" do
+      resources :jobs, shallow: true, except: [:index]
+    end
   end
 
   devise_for :users
