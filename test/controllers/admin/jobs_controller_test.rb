@@ -36,5 +36,12 @@ module Admin
 
       assert_response :success
     end
+
+    test "should purge images" do
+      @job.company_logo.attach test_image
+      assert_difference("ActiveStorage::Attachment.count", -1) do
+        patch admin_job_url(@job), params: { job: { company_logo_delete: true } }
+      end
+    end
   end
 end

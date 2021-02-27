@@ -19,6 +19,7 @@ module Admin
     end
 
     def update
+      @job.company_logo.purge if image_purge?
       if @job.update(job_params)
         redirect_to [:admin, @job], notice: "Job was successfully updated."
       else
@@ -38,6 +39,10 @@ module Admin
 
       def job_params
         params.require(:job).permit(:company_name, :role, :description, :start_date, :end_date, :company_logo)
+      end
+
+      def image_purge?
+        params.require(:job)[:company_logo_delete].present?
       end
   end
 
