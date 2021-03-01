@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :jobs, shallow: true, except: %i[new index]
       resources :categories, shallow: true, except: %i[new index]
       resources :skills, shallow: true, except: %i[new index]
+      resources :soft_skills, shallow: true, except: %i[new index]
     end
   end
 

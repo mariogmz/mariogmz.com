@@ -1,0 +1,18 @@
+= turbo_frame_tag dom_id(soft_skill) do
+  = form_for [:admin, soft_skill], id: dom_id(soft_skill), builder: CustomBuilder, html: { class: "w-full" } do |f|
+    - if soft_skill.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(soft_skill.errors.count, "error")} prohibited this soft_skill from being saved:"
+        %ul
+          - soft_skill.errors.full_messages.each do |message|
+            %li= message
+    .flex.flex-col.space-y-6.py-6
+      .field.inline
+        = f.label :name
+        = f.text_field :name
+      .field
+        = f.label :icon
+        = f.file_field :icon, accept: "image/*"
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"
+        = yield

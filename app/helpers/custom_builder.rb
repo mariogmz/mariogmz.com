@@ -8,7 +8,7 @@ class CustomBuilder < ActionView::Helpers::FormBuilder
       options["data-file-input-target"] = "input";
       options["data-action"] = "file-input#changeBackground";
       @template.concat super(method, options)
-      @template.concat @template.hidden_field_tag "#{object.class.name.downcase}[#{method}_delete]", nil, "data-file-input-target": "deleteField"
+      @template.concat @template.hidden_field_tag "#{object.class.name.underscore}[#{method}_delete]", nil, "data-file-input-target": "deleteField"
     end
   end
 

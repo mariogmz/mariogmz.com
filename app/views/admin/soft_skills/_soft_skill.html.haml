@@ -1,0 +1,12 @@
+= turbo_frame_tag dom_id(soft_skill), class: "flex justify-between space-x-6 py-3" do
+  .flex.flex-col.w-full.space-y-3.items-center
+    .text-center
+      - if soft_skill.icon.attached?
+        = rounded_image_tag url_for(soft_skill.icon.variant(resize_to_limit: [128, 128]))
+    .flex-grow
+      %p.font-bold.text-center= soft_skill.name
+    .flex.items-center.space-x-3.flex-end
+      = link_to edit_admin_soft_skill_path(soft_skill), class: "button-icon" do
+        = icon "pencil"
+      = button_to admin_soft_skill_path(soft_skill), method: :delete, class: "button-icon" do
+        = icon "trash"

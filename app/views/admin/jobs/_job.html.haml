@@ -23,5 +23,5 @@
     .flex.items-center.space-x-3.flex-end
       = link_to edit_admin_job_path(job), class: "button-icon" do
         = icon "pencil"
-      = link_to admin_job_path(job), remote: true, method: :delete, class: "button-icon" do
+      = button_to admin_job_path(job), method: :delete, class: "button-icon" do
         = icon "trash"

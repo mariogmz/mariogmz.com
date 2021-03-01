@@ -3,6 +3,7 @@ class Profile < ApplicationRecord
   has_many :pages
   has_many :jobs
   has_many :skills
+  has_many :soft_skills
 
   delegate :active_page, to: :pages
 

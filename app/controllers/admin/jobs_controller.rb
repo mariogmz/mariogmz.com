@@ -29,7 +29,7 @@ module Admin
 
     def destroy
       @job.destroy
-      head :ok
+      render turbo_stream: ""
     end
 
     private
