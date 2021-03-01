@@ -1,0 +1,21 @@
+= turbo_frame_tag dom_id(skill) do
+  = form_for [:admin, skill], id: dom_id(skill), html: { class: "w-full" } do |f|
+    - if skill.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(skill.errors.count, "error")} prohibited this skill from being saved:"
+        %ul
+          - skill.errors.full_messages.each do |message|
+            %li= message
+    .flex.flex-col.space-y-6.py-6
+      .field.inline
+        = f.label :name
+        = f.text_field :name
+      .field.inline
+        = f.label :expertise
+        = f.number_field :expertise, min: 1, max: 10
+      .field.inline
+        = f.label :category
+        = f.collection_select :category_id, @categories, :id, :name, include_blank: true
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"
+        = yield

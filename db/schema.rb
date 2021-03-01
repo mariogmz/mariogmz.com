@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_163837) do
+ActiveRecord::Schema.define(version: 2021_02_27_004053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2021_02_26_163837) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer "order"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -101,6 +108,17 @@ ActiveRecord::Schema.define(version: 2021_02_26_163837) do
     t.index ["page_id"], name: "index_services_on_page_id"
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "expertise"
+    t.bigint "profile_id", null: false
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_skills_on_category_id"
+    t.index ["profile_id"], name: "index_skills_on_profile_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -120,4 +138,6 @@ ActiveRecord::Schema.define(version: 2021_02_26_163837) do
   add_foreign_key "profiles", "users"
   add_foreign_key "projects", "pages"
   add_foreign_key "services", "pages"
+  add_foreign_key "skills", "categories"
+  add_foreign_key "skills", "profiles"
 end

@@ -37,6 +37,9 @@ label {
 
 [type="text"],
 [type="url"],
+[type="number"],
+[type="password"],
+[type="email"],
 textarea,
 select {
   @apply border border-manatee rounded-md focus:border-space-cadet focus:outline-none;

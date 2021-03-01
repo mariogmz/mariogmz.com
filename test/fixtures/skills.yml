@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ruby:
+  name: Ruby
+  expertise: 5
+  profile: admin
+  category: programming_languages
+
+js:
+  name: Javascript
+  expertise: 5
+  profile: admin
+  category: programming_languages
+
+php:
+  name: PHP
+  expertise: 4
+  profile: admin
+  category: programming_languages
+
+html:
+  name: HTML
+  expertise: 5
+  profile: admin
+  category: programming_languages
+
+css:
+  name: CSS
+  expertise: 5
+  profile: admin
+  category: programming_languages
+
+postgresql:
+  name: Postgresql
+  expertise: 5
+  profile: admin
+  category: databases
+
+mysql:
+  name: MySQL
+  expertise: 4
+  profile: admin
+  category: databases

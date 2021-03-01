@@ -7,4 +7,10 @@ module ApplicationHelper
     options[:class] = ("#{options[:class]} object-contain rounded-full w-32 h-32 border-manatee border-2 shadow-md")
     image_tag(source, options)
   end
+
+  def stars(amount)
+    return if amount.nil?
+    amount.times.each { concat icon("star-solid", klass: "text-yellow-300 inline-block") }
+    nil
+  end
 end

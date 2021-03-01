@@ -1,5 +1,6 @@
 %h1 Experience
 = turbo_stream_from :jobs
+= turbo_stream_from :categories
 .flex.flex-col.items-center.space-y-6.2xl:flex-row.2xl:items-start.2xl:space-y-0.2xl:space-x-6
   .w-full.space-y-6
     .card
@@ -10,7 +11,17 @@
       = render "admin/jobs/form", job: @new_job
     .card
       %h2.mb-0 Skills
+      = turbo_frame_tag :skills, class: "divide-y" do
+        = render @skills
+      %h2 New skill
+      = render "admin/skills/form", skill: @new_skill
   .w-full.space-y-6
+    .card
+      %h2.mb-0 Skill Categories
+      = turbo_frame_tag :categories, class: "divide-y" do
+        = render @categories
+      %h2 New category
+      = render "admin/categories/form", category: @new_category
     .card
       %h2.mb-0 Soft Skills
     .card

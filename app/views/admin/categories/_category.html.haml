@@ -1,0 +1,10 @@
+= turbo_frame_tag dom_id(category), class: "flex justify-between space-x-6 py-3" do
+  .flex.items-center.flex-grow
+    %p.divide-x.space-x-3
+      %span.font-bold=category.order
+      %span.pl-3= category.name
+  .flex.items-center.space-x-3.flex-end
+    = link_to edit_admin_category_path(category), class: "button-icon" do
+      = icon "pencil"
+    = button_to admin_category_path(category), method: :delete, class: "button-icon" do
+      = icon "trash"
