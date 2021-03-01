@@ -1,29 +1,30 @@
-= form_for [:admin, @profile] do |f|
-  - if @profile.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
-      %ul
-        - @profile.errors.full_messages.each do |message|
-          %li= message
-  .flex.flex-col.space-y-6
-    .field.responsive
-      = f.label :first_name, class: "md:w-1/4"
-      = f.text_field :first_name
-    .field.responsive
-      = f.label :last_name, class: "md:w-1/4"
-      = f.text_field :last_name
-    .field.responsive
-      = f.label :role, class: "md:w-1/4"
-      = f.text_field :role
-    .field.responsive
-      = f.label :location, class: "md:w-1/4"
-      = f.text_field :location
-    .field.inline
-      = f.label :visa
-      = f.check_box :visa
-    .field.inline
-      = f.label :realocation
-      = f.check_box :realocation
-    .flex.justify-end.space-x-6
-      = f.submit "Save", class: "button secondary"
-      = yield
+= turbo_frame_tag dom_id(profile) do
+  = form_for [:admin, profile] do |f|
+    - if profile.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(profile.errors.count, "error")} prohibited this profile from being saved:"
+        %ul
+          - profile.errors.full_messages.each do |message|
+            %li= message
+    .flex.flex-col.space-y-6
+      .field.responsive
+        = f.label :first_name, class: "md:w-1/4"
+        = f.text_field :first_name
+      .field.responsive
+        = f.label :last_name, class: "md:w-1/4"
+        = f.text_field :last_name
+      .field.responsive
+        = f.label :role, class: "md:w-1/4"
+        = f.text_field :role
+      .field.responsive
+        = f.label :location, class: "md:w-1/4"
+        = f.text_field :location
+      .field.inline
+        = f.label :visa
+        = f.check_box :visa
+      .field.inline
+        = f.label :realocation
+        = f.check_box :realocation
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"
+        = yield

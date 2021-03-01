@@ -1,6 +1,11 @@
-%h1 Editing profile
-
-= turbo_frame_tag "profile" do
+= turbo_stream_from :socials
+.flex.flex-col.space-y-6
   .card
-    = render 'form' do
-      = link_to 'Back', admin_dashboard_path, class: "button bg-gray"
+    = render "form", profile: current_profile do
+      = link_to "Cancel", admin_dashboard_path, class: "button secondary"
+  .card
+    %h2 Social Networks
+    = turbo_frame_tag :socials do
+      = render @socials
+    %h2 Add new
+    = render "admin/socials/form", social: @new_social

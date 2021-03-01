@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     root to: "dashboard#index", as: :dashboard
-    resource :profile
+    resource :profile, except: %i[index create delete]
 
     resources :pages do
       resources :services, shallow: true, except: [:index] do
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :categories, shallow: true, except: %i[new index]
       resources :skills, shallow: true, except: %i[new index]
       resources :soft_skills, shallow: true, except: %i[new index]
+      resources :socials, shallow: true, except: %i[new index]
     end
   end
 

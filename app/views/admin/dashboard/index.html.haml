@@ -1,24 +1,5 @@
+= turbo_stream_from current_profile
+
 .dashboard
-  %h1.my-4.text-center.md:text-left= current_profile.full_name
-  = turbo_frame_tag "profile" do
-    .card
-      .field
-        %p.font-bold Email:
-        %span= current_user.email
-      .field
-        %p.font-bold Role:
-        %span= current_profile.role
-      .field
-        %p.font-bold Location:
-        %span= current_profile.location
-      .field.inline
-        = label_tag :visa do
-          %span VISA?
-          = check_box_tag :visa, true, current_profile.visa, disabled: true
-      .field.inline
-        = label_tag :realocation do
-          %span Available for realocation?
-          = check_box_tag :relocation, true, current_profile.realocation, disabled: true
-      .flex.justify-end
-        = link_to edit_admin_profile_path, class: "button-icon" do
-          = icon "pencil"
+  %h1.my-4.text-center.md:text-left Welcome
+  = render current_profile

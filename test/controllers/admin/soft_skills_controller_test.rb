@@ -12,7 +12,7 @@ module Admin
         post admin_soft_skills_url, params: { soft_skill: { name: @soft_skill.name } }
       end
 
-      assert_redirected_to admin_experience_path
+      assert_redirected_to admin_experience_url
     end
 
     test "should show soft_skill" do

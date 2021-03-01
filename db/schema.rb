@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_022533) do
+ActiveRecord::Schema.define(version: 2021_03_01_025958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,15 @@ ActiveRecord::Schema.define(version: 2021_03_01_022533) do
     t.index ["profile_id"], name: "index_skills_on_profile_id"
   end
 
+  create_table "socials", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_socials_on_profile_id"
+  end
+
   create_table "soft_skills", force: :cascade do |t|
     t.string "name"
     t.bigint "profile_id", null: false
@@ -148,5 +157,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_022533) do
   add_foreign_key "services", "pages"
   add_foreign_key "skills", "categories"
   add_foreign_key "skills", "profiles"
+  add_foreign_key "socials", "profiles"
   add_foreign_key "soft_skills", "profiles"
 end

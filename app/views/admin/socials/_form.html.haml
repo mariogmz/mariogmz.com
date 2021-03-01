@@ -1,0 +1,21 @@
+= turbo_frame_tag dom_id(social) do
+  = form_for [:admin, social], id: dom_id(social), builder: CustomBuilder, html: { class: "w-full" } do |f|
+    - if social.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(social.errors.count, "error")} prohibited this social from being saved:"
+        %ul
+          - social.errors.full_messages.each do |message|
+            %li= message
+    .flex.flex-col.space-y-6.py-6
+      .field.inline
+        = f.label :name
+        = f.text_field :name
+      .field.inline
+        = f.label :url
+        = f.url_field :url
+      .field
+        = f.label :icon
+        = f.file_field :icon
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"
+        = yield

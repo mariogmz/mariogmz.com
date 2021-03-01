@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+github:
+  name: Github
+  url: https://github.com/mariogmz
+  profile: admin
+
+linkedin:
+  name: LinkedIn
+  url: https://www.linkedin.com/in/mariogomezmtz/
+  profile: admin

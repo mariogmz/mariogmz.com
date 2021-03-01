@@ -1,0 +1,21 @@
+= turbo_frame_tag dom_id(profile), class: "card" do
+  .field
+    %p.font-bold Email:
+    %span= profile.user.email
+  .field
+    %p.font-bold Role:
+    %span= profile.role
+  .field
+    %p.font-bold Location:
+    %span= profile.location
+  .field.inline
+    = label_tag :visa do
+      %span VISA?
+      = check_box_tag :visa, true, profile.visa, disabled: true
+  .field.inline
+    = label_tag :realocation do
+      %span Available for realocation?
+      = check_box_tag :relocation, true, profile.realocation, disabled: true
+  .flex.justify-end
+    = link_to edit_admin_profile_path, class: "button-icon" do
+      = icon "pencil"
