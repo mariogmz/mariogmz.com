@@ -1,0 +1,11 @@
+= turbo_frame_tag dom_id(language), class: "flex justify-between space-x-6 py-3" do
+  .flex.flex-col.w-full.space-y-3.items-center
+    .flex-grow
+      %p.font-bold.text-center= language.name
+    .flex-grow
+      %p.font-bold.text-center= language.level
+    .flex.items-center.space-x-3.flex-end
+      = link_to edit_admin_language_path(language), class: "button-icon" do
+        = icon "pencil"
+      = button_to admin_language_path(language), method: :delete, class: "button-icon" do
+        = icon "trash"

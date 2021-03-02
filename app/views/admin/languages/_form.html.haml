@@ -1,0 +1,18 @@
+= turbo_frame_tag dom_id(language) do
+  = form_for [:admin, language] do |f|
+    - if language.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(language.errors.count, "error")} prohibited this language from being saved:"
+        %ul
+          - language.errors.full_messages.each do |message|
+            %li= message
+    .flex.flex-col.space-y-6.py-6
+      .field.inline
+        = f.label :name
+        = f.text_field :name
+      .field.inline
+        = f.label :level
+        = f.select :level, %w[Native A1 A2 B1 B2 C1 C2]
+      .flex.justify-end.space-x-6
+        = f.submit "Save", class: "button secondary"
+        = yield

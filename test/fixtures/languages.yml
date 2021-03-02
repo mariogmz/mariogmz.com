@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+es:
+  name: Spanish
+  level: Native
+  profile: admin
+
+en:
+  name: MyString
+  level: B2
+  profile: admin

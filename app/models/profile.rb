@@ -5,6 +5,7 @@ class Profile < ApplicationRecord
   has_many :skills
   has_many :soft_skills
   has_many :socials
+  has_many :languages
 
   delegate :active_page, to: :pages
 

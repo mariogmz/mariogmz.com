@@ -17,8 +17,10 @@ Rails.application.routes.draw do
       resources :categories, shallow: true, except: %i[new index]
       resources :skills, shallow: true, except: %i[new index]
       resources :soft_skills, shallow: true, except: %i[new index]
-      resources :socials, shallow: true, except: %i[new index]
     end
+
+    resources :socials, shallow: true, except: %i[new index]
+    resources :languages, shallow: true, except: %i[new index]
   end
 
   devise_for :users
