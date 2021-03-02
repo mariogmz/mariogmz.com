@@ -4,6 +4,12 @@
     = render "form", profile: current_profile do
       = link_to "Cancel", admin_dashboard_path, class: "button secondary"
   .card
+    %h2 Languages
+    = turbo_frame_tag :languages do
+      = render @languages
+    %h2 Add new
+    = render "admin/languages/form", language: @new_language
+  .card
     %h2 Social Networks
     = turbo_frame_tag :socials do
       = render @socials

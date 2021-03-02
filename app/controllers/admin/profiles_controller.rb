@@ -8,6 +8,8 @@ module Admin
     def edit
       @socials = current_profile.socials.all
       @new_social = current_profile.socials.new
+      @languages = current_profile.languages.all
+      @new_language = current_profile.languages.new
     end
 
     def update
