@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     resources :languages, shallow: true, except: %i[new index]
   end
 
-  devise_for :users
+  devise_for :users, path_names: {
+    sign_up: ""
+  }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
