@@ -14,6 +14,7 @@
   .card
     %h2 Social Networks
     = turbo_frame_tag :socials do
-      = render @socials
+      .flex.space-x-12.justify-center.flex-wrap
+        = render @socials
     %h2 Add new
     = render "admin/socials/form", social: @new_social

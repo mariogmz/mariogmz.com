@@ -10,7 +10,7 @@
         - if @page.services.reload.any?
           .flex.justify-between.my-2.space-x-3
             .font-bold.flex-grow Title
-            .font-bold.flex-grow Name
+            .font-bold.flex-grow Description
             .font-bold.flex-grow Image
           = render @page.services
       = turbo_frame_tag :new_service_form do
@@ -23,6 +23,6 @@
       = turbo_frame_tag :projects, class: "divide-y divide-manatee" do
         - if @page.projects.reload.any?
           = render @page.projects
-      = turbo_frame_tag :new_service_form do
+      = turbo_frame_tag :new_project_form do
         %p.font-bold Add new
         = render "admin/projects/form", page: @page, project: @new_project

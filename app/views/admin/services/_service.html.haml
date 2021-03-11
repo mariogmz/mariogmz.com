@@ -1,9 +1,9 @@
-= turbo_frame_tag dom_id(service), class: "flex justify-between items-center py-3 space-x-3" do
-  %p.flex-grow= service.name
+= turbo_frame_tag dom_id(service), class: "flex flex-col space-y-6 py-3 md:flex-row md:justify-between md:items-center md:space-x-3 md:space-y-0" do
+  %p.font-bold= service.name
   %p.flex-grow= service.description
   - if service.image.attached?
     = image_tag url_for(service.image.variant(resize_to_limit: [100, 100]))
-  .flex.space-x-3
+  .flex.space-x-3.justify-end
     = link_to edit_admin_service_path(service), class: "button-icon" do
       = icon "pencil"
     = link_to admin_service_path(service), remote: true, method: :delete, class: "button-icon" do
