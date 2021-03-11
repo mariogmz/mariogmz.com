@@ -1,3 +1,4 @@
+= turbo_stream_from :languages
 = turbo_stream_from :socials
 .flex.flex-col.space-y-6
   .card
@@ -6,7 +7,8 @@
   .card
     %h2 Languages
     = turbo_frame_tag :languages do
-      = render @languages
+      .flex.space-x-12.justify-center.flex-wrap
+        = render @languages
     %h2 Add new
     = render "admin/languages/form", language: @new_language
   .card
