@@ -1,35 +1,10 @@
-- if @page.present?
+- if @active_page.present?
   %h1 Active page
-  = @page
+  = render @active_page
 
 - if @pages.any?
-  %table
-    %thead
-      %tr
-        %th Summary
-        %th About title
-        %th Services title
-        %th Projects title
-        %th Contact title
-        %th Contact number
-        %th Active
-        %th
-        %th
-        %th
-
-    %tbody
-      - @pages.each do |page|
-        %tr
-          %td= page.summary
-          %td= page.about_title
-          %td= page.services_title
-          %td= page.projects_title
-          %td= page.contact_title
-          %td= page.contact_number
-          %td= page.active
-          %td= link_to 'Show', [:admin, page]
-          %td= link_to 'Edit', edit_admin_page_path(page)
-          %td= link_to 'Destroy', [:admin, page], method: :delete, data: { confirm: 'Are you sure?' }
-- else
+  %h1.mt-6 More pages
+  = render @pages
+- if @pages.empty? && @active_page.nil?
   .h-screen.flex.items-center.justify-center
     = link_to 'Create your first cover page', new_admin_page_path, class: "button max-w-md"

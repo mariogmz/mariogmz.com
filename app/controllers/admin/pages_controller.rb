@@ -4,8 +4,8 @@ module Admin
 
     def index
       pages = current_profile.pages
-      @pages = pages.all
-      @page = @pages.active.first
+      @active_page = pages.active.first
+      @pages = pages.where.not(id: @active_page)
     end
 
     def show

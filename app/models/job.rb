@@ -6,7 +6,7 @@ class Job < ApplicationRecord
 
   scope :current, -> { order(start_date: :desc).first }
 
-  after_create_commit { broadcast_prepend_to :jobs, partial: "admin/jobs/job" }
+  after_create_commit { broadcast_append_to :jobs, partial: "admin/jobs/job" }
   after_update_commit { broadcast_replace_to :jobs, partial: "admin/jobs/job" }
   after_destroy_commit { broadcast_remove_to :jobs }
 end

@@ -1,0 +1,8 @@
+.card.max-w-ws
+  %h2.mb-0= "Page ##{page.id}"
+  %p.truncate= page.summary
+  .flex.justify-end.space-x-6
+    = link_to edit_admin_page_path(page), class: "button-icon" do
+      = icon "pencil"
+    = button_to [:admin, page], method: :delete, class: "button-icon", data: { confirm: "Are you sure?" } do
+      = icon "trash"

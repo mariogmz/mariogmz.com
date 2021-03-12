@@ -1,8 +1,7 @@
 = turbo_frame_tag dom_id(job), class: "flex justify-between space-x-6 py-3" do
   .flex.flex-col.w-full.space-y-3.items-center.md:flex-row.md:space-y-0.md:space-x-6.md:justify-between.md:justify-start
-    .text-center
-      - if job.company_logo.attached?
-        = rounded_image_tag url_for(job.company_logo.variant(resize_to_limit: [128, 128]))
+    - if job.company_logo.attached?
+      = rounded_image_tag url_for(job.company_logo.variant(resize_to_limit: [128, 128]))
     .flex-grow
       %p.space-x-3
         %span.font-bold Company name:

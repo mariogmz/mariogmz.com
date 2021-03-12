@@ -12,5 +12,5 @@
   .flex.items-center.space-x-3.flex-end
     = link_to edit_admin_skill_path(skill), class: "button-icon" do
       = icon "pencil"
-    = link_to admin_skill_path(skill), remote: true, method: :delete, class: "button-icon" do
+    = button_to admin_skill_path(skill), remote: true, method: :delete, class: "button-icon" do
       = icon "trash"
