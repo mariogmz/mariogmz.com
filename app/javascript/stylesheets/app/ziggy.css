@@ -10,6 +10,7 @@
   height: 90px;
   width: 65px;
   position: absolute;
+  z-index: 1;
 
   @media screen and (min-width: 768px) {
     height: 140px;
@@ -38,12 +39,28 @@
 
 .ziggy-top-left,
 .ziggy-bottom-left {
-  left: -25px;
+  left: 0;
+
+  &.outset {
+    left: -25px;
+  }
+
+  &.inset {
+    left: 25px;
+  }
 }
 
 .ziggy-top-right,
 .ziggy-bottom-right {
   right: 0;
+
+  &.outset {
+    right: -25px;
+  }
+
+  &.inset {
+    right: 25px;
+  }
 }
 
 .ziggy-top-center,
