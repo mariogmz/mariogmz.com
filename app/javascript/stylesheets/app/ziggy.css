@@ -1,0 +1,53 @@
+.ziggy-top-left,
+.ziggy-top-right,
+.ziggy-bottom-left,
+.ziggy-bottom-right,
+.ziggy-top-center,
+.ziggy-bottom-center {
+  background-image: url('images/ziggy-space-cadet.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90px;
+  width: 65px;
+  position: absolute;
+
+  @media screen and (min-width: 768px) {
+    height: 140px;
+    width: 115px;
+  }
+
+  &.alice-blue {
+    background-image: url('images/ziggy-alice-blue.svg');
+  }
+  &.amaranth-red {
+    background-image: url('images/ziggy-amaranth-red.svg');
+  }
+}
+
+.ziggy-top-left,
+.ziggy-top-right,
+.ziggy-top-center {
+  top: 0;
+}
+
+.ziggy-bottom-left,
+.ziggy-bottom-right,
+.ziggy-bottom-center {
+  bottom: 0;
+}
+
+.ziggy-top-left,
+.ziggy-bottom-left {
+  left: -25px;
+}
+
+.ziggy-top-right,
+.ziggy-bottom-right {
+  right: 0;
+}
+
+.ziggy-top-center,
+.ziggy-bottom-center {
+  left: 50%;
+  transform: translateX(-50%);
+}

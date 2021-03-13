@@ -33,25 +33,42 @@
 .corner-top-left::before,
 .corner-top-right::after {
   border-top-style: solid;
-  border-top-width: 150px;
+  border-top-width: 100px;
   top: 0;
+
+  @media screen and (min-width: 768px) {
+    border-top-width: 150px;
+  }
 }
 
 .corner-bottom-left::before,
 .corner-bottom-right::after {
   border-bottom-style: solid;
-  border-bottom-width: 150px;
+  border-bottom-width: 100px;
   bottom: 0;
+
+
+  @media screen and (min-width: 768px) {
+    border-bottom-width: 150px;
+  }
 }
 
 .corner-top-left::before,
 .corner-bottom-left::before {
-  border-right: 150px solid transparent;
+  border-right: 100px solid transparent;
   left: 0;
+
+  @media screen and (min-width: 768px) {
+    border-right: 150px solid transparent;
+  }
 }
 
 .corner-top-right::after,
 .corner-bottom-right::after {
-  border-left: 150px solid transparent;
+  border-left: 100px solid transparent;
   right: 0;
+
+  @media screen and (min-width: 768px) {
+    border-left: 150px solid transparent;
+  }
 }

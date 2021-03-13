@@ -1,4 +1,5 @@
 @import "corners.css";
+@import "ziggy.css";
 
 @tailwind base;
 @tailwind components;
