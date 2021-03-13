@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply h-screen w-screen font-body bg-white text-space-cadet flex flex-col;
+    @apply h-screen w-screen font-admin bg-white text-space-cadet flex flex-col;
   }
 }
 

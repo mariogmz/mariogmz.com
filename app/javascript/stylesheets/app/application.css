@@ -1,0 +1,33 @@
+@import "corners.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+@layer base {
+  :root {
+    --color-space-cadet: #2b2d42;
+    --color-manatee: #8d99ae;
+    --color-alice-blue: #edf2f4;
+    --color-amaranth-red: #d90429;
+    --color-tall-red: #b02b34;
+  }
+
+  h1,
+  h2 {
+    @apply leading-none;
+  }
+
+  h1 {
+    @apply text-7xl font-spartan font-bold uppercase mb-6 md:text-9xl;
+  }
+
+  h2 {
+    @apply text-4xl font-app font-bold tracking-widest md:text-6xl;
+  }
+
+  h3 {
+    @apply text-2xl font-app font-bold tracking-widest md:text-3xl;
+  }
+}
