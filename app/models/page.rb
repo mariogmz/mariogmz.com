@@ -7,9 +7,12 @@ class Page < ApplicationRecord
 
   scope :active, -> { where(active: true) }
 
-  has_one_attached :hero_image
+  has_one_attached :hero_image_big
+  has_one_attached :hero_image_front
   has_one_attached :about_image
   has_one_attached :contact_image
+
+  after_update_commit { broadcast_replace_to :pages, partial: "admin/jobs/job" }
 
   def active_page
     active.first

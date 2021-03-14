@@ -38,8 +38,11 @@
     %h2 Images
     .flex.flex-col.space-y-6.lg:flex-row.lg:justify-center.lg:space-y-0.lg:space-x-6
       .field
-        = f.label "Hero"
-        = f.file_field :hero_image, accept: "image/*"
+        = f.label "Hero Big"
+        = f.file_field :hero_image_big, accept: "image/*"
+      .field
+        = f.label "Hero Front"
+        = f.file_field :hero_image_front, accept: "image/*"
       .field
         = f.label "About"
         = f.file_field :about_image, accept: "image/*"

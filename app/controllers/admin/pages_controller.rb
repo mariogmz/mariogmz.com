@@ -61,14 +61,16 @@ module Admin
           :contact_title,
           :contact_number,
           :active,
-          :hero_image,
+          :hero_image_big,
+          :hero_image_front,
           :about_image,
           :contact_image
         )
       end
 
       def purge_images
-        @page.hero_image.purge if params.require(:page)[:hero_image_delete].present?
+        @page.hero_image_big.purge if params.require(:page)[:hero_image_big_delete].present?
+        @page.hero_image_front.purge if params.require(:page)[:hero_image_front_delete].present?
         @page.about_image.purge if params.require(:page)[:about_image_delete].present?
         @page.contact_image.purge if params.require(:page)[:contact_image_delete].present?
       end

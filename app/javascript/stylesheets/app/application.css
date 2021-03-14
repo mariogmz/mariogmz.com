@@ -36,7 +36,8 @@
 .circle {
   background-color: var(--color-tall-red);
   border-radius: 50%;
-  object-fit: contain;
+  max-width: none;
+  object-fit: cover;
   position: absolute;
 
   @apply shadow-xl;

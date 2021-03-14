@@ -49,11 +49,11 @@ module Admin
     end
 
     test "should purge images" do
-      @page.hero_image.attach test_image
+      @page.hero_image_big.attach test_image
       @page.about_image.attach test_image
       @page.contact_image.attach test_image
       assert_difference("ActiveStorage::Attachment.count", -3) do
-        patch admin_page_url(@page, params: { page: { hero_image_delete: true, about_image_delete: true, contact_image_delete: true }})
+        patch admin_page_url(@page, params: { page: { hero_image_big_delete: true, about_image_delete: true, contact_image_delete: true }})
       end
     end
   end

@@ -33,6 +33,7 @@ export default class extends Controller {
   removeInstructions() {
     this.removeButtonTarget.classList.remove('hidden');
     this.instructionsTarget.classList.add('hidden');
+    this.deleteFieldTarget.value = null;
   }
 
   showInstructions() {
