@@ -36,6 +36,7 @@
 .corner-bottom-right::after {
   content: "";
   position: absolute;
+  z-index: 1;
 }
 
 .corner-top-left::before,

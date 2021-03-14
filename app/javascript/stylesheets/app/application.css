@@ -32,3 +32,33 @@
     @apply text-2xl font-app font-bold tracking-widest md:text-3xl;
   }
 }
+
+.circle {
+  background-color: var(--color-tall-red);
+  border-radius: 50%;
+  object-fit: contain;
+  position: absolute;
+
+  @apply shadow-xl;
+
+  &.back {
+    height: 615px;
+    width: 615px;
+    left: -20%;
+    top: -5%;
+  }
+
+  &.big {
+    height: 880px;
+    width: 880px;
+    top: 4%;
+    right: -40%;
+  }
+
+  &.front {
+    height: 585px;
+    width: 585px;
+    bottom: -5%;
+    left: -10%;
+  }
+}
