@@ -1,5 +1,8 @@
 <!-- services -->
-%section.bg-alice-blue.text-space-cadet.flex.flex-col.h-screen.relative.corner-bottom-left.corner-top-right.bottom-amaranth-red.top-space-cadet
+%section.bg-alice-blue.text-space-cadet.h-screen.flex.items-center.justify-center.relative.corner-bottom-left.corner-top-right.bottom-amaranth-red.top-space-cadet
   .ziggy-bottom-left.space-cadet.inset
   .ziggy-top-right.amaranth-red.inset
-  %h1 Hello
+  .container
+    %h2.text-center.mb-14.lg:mb-28= @page.services_title
+    .flex.items-center.justify-between.flex-col.space-y-6.lg:flex-row.lg:space-y-0
+      = render @page.services
