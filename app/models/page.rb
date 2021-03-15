@@ -12,8 +12,6 @@ class Page < ApplicationRecord
   has_one_attached :about_image
   has_one_attached :contact_image
 
-  after_update_commit { broadcast_replace_to :pages, partial: "admin/jobs/job" }
-
   def active_page
     active.first
   end

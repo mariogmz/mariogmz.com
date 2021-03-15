@@ -1,11 +1,11 @@
 <!-- cover -->
-%section.bg-amaranth-red.text-alice-blue.flex.flex-col.h-screen.lg:flex-row
+%section.bg-amaranth-red.text-alice-blue.flex.flex-col.h-screen.lg:flex-row.overflow-hidden.z-10
   %div{ class: "flex items-center justify-center corner-top-right corner-bottom-left bottom-space-cadet top-space-cadet flex-grow md:justify-start lg:w-7/12" }
     .ziggy-top-left.alice-blue.outset
     .ziggy-bottom-right
-    .max-w-lg.text-center.md:text-left.md:ml-28
+    .max-w-lg.text-center.md:text-left.md:ml-28.z-10
       %h1.text-space-cadet.mb-6= @profile.full_name
-      %h3.text-alice-blue.md:pl-3= @profile.role
+      %p.text-3xl.font-bold.text-alice-blue.tracking-widest.md:pl-3= @profile.role
   %div{ class: "flex-grow lg:w-5/12 relative" }
     .circle.back
     = image_tag(@page.hero_image_big, class: "circle big") if @page.hero_image_big.attached?

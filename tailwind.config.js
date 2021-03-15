@@ -19,6 +19,10 @@ module.exports = {
       container: {
         center: true,
         padding: '2rem'
+      },
+      maxHeight: {
+        'screen-half': '50vh',
+        'none': 'none',
       }
     }
   },

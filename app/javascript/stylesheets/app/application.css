@@ -9,6 +9,7 @@
 @layer base {
   :root {
     --color-space-cadet: #2b2d42;
+    --color-ebony-clay: #303245;
     --color-manatee: #8d99ae;
     --color-alice-blue: #edf2f4;
     --color-amaranth-red: #d90429;
@@ -16,20 +17,21 @@
   }
 
   h1,
-  h2 {
-    @apply leading-none;
+  h2,
+  h3 {
+    @apply leading-none uppercase font-bold font-spartan;
   }
 
   h1 {
-    @apply text-7xl font-spartan font-bold uppercase mb-6 md:text-9xl;
+    @apply text-7xl mb-6 md:text-9xl;
   }
 
   h2 {
-    @apply text-4xl font-app font-bold tracking-widest md:text-6xl;
+    @apply text-4xl md:text-6xl;
   }
 
-  h3 {
-    @apply text-2xl font-app font-bold tracking-widest md:text-3xl;
+  p {
+    @apply text-lg;
   }
 }
 
@@ -96,4 +98,19 @@
       width: 585px;
     }
   }
+}
+
+.background-circle {
+  background-color: var(--color-ebony-clay);
+  border-radius: 50%;
+  height: 500px;
+  left: 50%;
+  min-height: 700px;
+  min-width: 700px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  z-index: 1;
+  @apply shadow-xl;
 }
