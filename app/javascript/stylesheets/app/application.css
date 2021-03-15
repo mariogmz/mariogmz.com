@@ -14,6 +14,7 @@
     --color-alice-blue: #edf2f4;
     --color-amaranth-red: #d90429;
     --color-tall-red: #b02b34;
+    --color-brick-red: #c72b33;
   }
 
   h1,
@@ -100,7 +101,7 @@
   }
 }
 
-.background-circle {
+.content-circle {
   background-color: var(--color-ebony-clay);
   border-radius: 50%;
   height: 500px;
@@ -113,4 +114,21 @@
   width: 500px;
   z-index: 1;
   @apply shadow-xl;
+
+  &.big {
+    min-height: 1000px;
+    min-width: 1000px;
+  }
+
+  &.brick-red {
+    background-color: var(--color-brick-red);
+  }
+}
+
+.ziggy {
+  width: 65px;
+
+  @media screen and (min-width: 768px) {
+    width: 115px;
+  }
 }

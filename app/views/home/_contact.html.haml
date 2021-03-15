@@ -1,0 +1,17 @@
+<!-- contact -->
+%section.h-screen.text-alice-blue.relative.flex.flex-col.lg:flex-row
+  .flex-1.corner-bottom-left.bottom-space-cadet.bg-amaranth-red
+  .flex-1.flex.items-center.corner-top-right.top-amaranth-red.bg-space-cadet
+    .container.space-y-12.px-28
+      %h2.text-amaranth-red= @page.contact_title
+      = image_pack_tag "media/images/ziggy-alice-blue.svg", class: "ziggy my-6"
+      %div
+        %p.text-amaranth-red.text-bold Email address:
+        = link_to @profile.user.email, "mailto:#{@profile.user.email}", class: "text-alice-blue text-lg"
+      %div
+        %p.text-amaranth-red.text-bold Phone number:
+        = link_to @page.contact_number, "tel:#{@page.contact_number}", class: "text-alice-blue text-lg"
+      %div
+        %p.text-amaranth-red.text-bold.mb-6 You can also find me in:
+        .flex.space-x-12.items-end
+          = render @profile.socials
