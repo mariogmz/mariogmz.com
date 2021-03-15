@@ -1,17 +1,21 @@
 <!-- contact -->
 %section.h-screen.text-alice-blue.relative.flex.flex-col.lg:flex-row
-  .flex-1.corner-bottom-left.bottom-space-cadet.bg-amaranth-red
+  .flex-1.corner-bottom-left.bottom-space-cadet.bg-amaranth-red.overflow-hidden.h-50.max-h-screen-half.lg:max-h-none
+    .circle.big.left
+    .circle.front.right
+    - if @page.contact_image.attached? && @page.contact_image.representable?
+      = image_tag url_for(@page.contact_image.variant(resize_to_limit: [800, 800])), class: "content-circle object-cover"
   .flex-1.flex.items-center.corner-top-right.top-amaranth-red.bg-space-cadet
-    .container.space-y-12.px-28
+    .container.lg:space-y-12.p-6.lg:px-28
       %h2.text-amaranth-red= @page.contact_title
       = image_pack_tag "media/images/ziggy-alice-blue.svg", class: "ziggy my-6"
-      %div
+      .text-center.lg:text-left
         %p.text-amaranth-red.text-bold Email address:
         = link_to @profile.user.email, "mailto:#{@profile.user.email}", class: "text-alice-blue text-lg"
-      %div
+      .text-center.lg:text-left
         %p.text-amaranth-red.text-bold Phone number:
         = link_to @page.contact_number, "tel:#{@page.contact_number}", class: "text-alice-blue text-lg"
-      %div
-        %p.text-amaranth-red.text-bold.mb-6 You can also find me in:
-        .flex.space-x-12.items-end
+      .text-center.lg:text-left
+        %p.text-amaranth-red.text-bold.lg:mb-6 You can also find me in:
+        .flex.space-x-12.items-end.justify-center.lg:justify-start
           = render @profile.socials

@@ -1,5 +1,5 @@
 = link_to social.url do
   - if social.icon.attached? && social.icon.representable?
-    = image_tag url_for(social.icon.variant(resize_to_limit: [100, 100])), class: "w-14 h-14 object-fill"
+    = image_tag url_for(social.icon.variant(resize_to_limit: [100, 100])), class: "w-8 h-8 lg:w-14 lg:h-14 object-fill"
   - else
     = social.name
