@@ -1,0 +1,7 @@
+.flex-1.flex.flex-col.items-center.text-center.space-y-3
+  - if project.image.attached? && project.image.representable?
+    = image_tag url_for(project.image.variant(resize_to_limit: [250, 250])), class: "h-24 w-48 lg:h-48 mb-3 object-contain"
+  %div
+    %p.font-bold= project.name
+    = link_to project.url, project.url, class: "text-alice-blue"
+  %p= project.description
