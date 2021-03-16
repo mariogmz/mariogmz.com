@@ -12,9 +12,10 @@
       .text-center.lg:text-left
         %p.text-amaranth-red.text-bold Email address:
         = link_to @profile.user.email, "mailto:#{@profile.user.email}", class: "text-alice-blue text-lg"
-      .text-center.lg:text-left
-        %p.text-amaranth-red.text-bold Phone number:
-        = link_to @page.contact_number, "tel:#{@page.contact_number}", class: "text-alice-blue text-lg"
+      - if @page.contact_number.present?
+        .text-center.lg:text-left
+          %p.text-amaranth-red.text-bold Phone number:
+          = link_to @page.contact_number, "tel:#{@page.contact_number}", class: "text-alice-blue text-lg"
       .text-center.lg:text-left
         %p.text-amaranth-red.text-bold.lg:mb-6 You can also find me in:
         .flex.space-x-12.items-end.justify-center.lg:justify-start
