@@ -14,6 +14,6 @@ class HomeController < ApplicationController
 
   def set_page
     @page = Page.active.includes(:services, :projects, { profile: :user }).first
-    @profile = @page.profile
+    @profile = @page.profile if @page.present?
   end
 end

@@ -1,5 +1,9 @@
-= render "cover"
-= render "about"
-= render "services"
-= render "projects"
-= render "contact"
+- if @page.present?
+  = render "cover"
+  = render "about"
+  = render "services"
+  = render "projects"
+  = render "contact"
+- else
+  .w-screen.h-screen.flex.justify-center.items-center.bg-space-cadet
+    %h1.text-alice-blue Coming soon
