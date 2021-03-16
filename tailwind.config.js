@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'space-cadet': 'var(--color-space-cadet)',
+        'ebony-clay': 'var(--color-ebony-clay)',
         'manatee': 'var(--color-manatee)',
         'alice-blue': 'var(--color-alice-blue)',
         'imperial-red': 'var(--color-imperial-red)',

@@ -5,6 +5,7 @@ ruby "3.0.0"
 
 gem "devise"
 gem "hotwire-rails"
+gem "inline_svg", "~> 1.7"
 gem "rails", "~> 6.1.3"
 gem "pg"
 gem "puma", "~> 5.0"
@@ -56,5 +57,3 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "tailwindcss-rails", "~> 0.3.1"
-
-gem "inline_svg", "~> 1.7"

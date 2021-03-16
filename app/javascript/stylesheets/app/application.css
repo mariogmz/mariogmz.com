@@ -17,6 +17,10 @@
     --color-brick-red: #c72b33;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   h1,
   h2,
   h3 {

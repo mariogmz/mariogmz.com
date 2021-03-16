@@ -1,0 +1,32 @@
+/ This example requires Tailwind CSS v2.0+
+%nav.bg-space-cadet.top-0.fixed.z-20.w-screen{ "data-controller": "navbar" }
+  .max-w-screen-2xl.mx-auto.px-2.sm:px-6.lg:px-8
+    .relative.flex.items-center.justify-between.h-16
+      .absolute.inset-y-0.left-0.flex.items-center.sm:hidden
+        / Mobile menu button
+        %button.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400.hover:text-white.hover:bg-gray-700.focus:outline-none.focus:ring-2.focus:ring-inset.focus:ring-white{"aria-controls": "mobile-menu", "aria-expanded": "false", type: "button", "data-action": "click->navbar#toggleMenu" }
+          %span.sr-only Open main menu
+          = inline_svg_pack_tag "media/icons/app/menu.svg", class: "block h-6 w-6"
+      .flex-1.flex.items-center.justify-center.sm:items-stretch.sm:justify-start
+        .hidden.sm:block.sm:ml-6
+          .flex.space-x-4
+            - active = "bg-manatee text-white px-3 py-2 rounded-md"
+            - inactive = "text-alice-blue hover:bg-amaranth-red hover:text-white px-3 py-2 rounded-md"
+            = link_to "Home", root_path, class: (action_name === "index" ? active : inactive)
+            - if action_name === "index"
+              = link_to @page.about_title, "#about", "data-turbolinks": false, class: inactive
+              = link_to @page.services_title, "#services", "data-turbolinks": false, class: inactive
+              = link_to @page.projects_title, "#projects", "data-turbolinks": false, class: inactive
+            = link_to "Experience", "#", class: (action_name === "experience" ? active : inactive)
+            = link_to "Skills", "#", class: (action_name === "skills" ? active : inactive)
+  .sm:hidden.hidden{ "data-navbar-target": "mobileMenu"}
+    .px-2.pt-2.pb-3.space-y-1
+      - active = "bg-manatee text-white block px-3 py-2 rounded-md"
+      - inactive = "text-alice-blue hover:bg-amaranth-red hover:text-white block px-3 py-2 rounded-md"
+      = link_to "Home", root_path, class: (action_name === "index" ? active : inactive)
+      - if action_name === "index"
+        = link_to @page.about_title, "#about", "data-turbolinks": false, class: inactive
+        = link_to @page.services_title, "#services", "data-turbolinks": false, class: inactive
+        = link_to @page.projects_title, "#projects", "data-turbolinks": false, class: inactive
+      = link_to "Experience", "#", class: (action_name === "experience" ? active : inactive)
+      = link_to "Skills", "#", class: (action_name === "skills" ? active : inactive)
