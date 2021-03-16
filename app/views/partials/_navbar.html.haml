@@ -1,5 +1,5 @@
 - if @page.present?
-  %nav.bg-space-cadet.top-0.fixed.z-20.w-screen{ "data-controller": "navbar" }
+  %nav.bg-space-cadet.top-0.fixed.z-20.w-full{ "data-controller": "navbar" }
     .max-w-screen-2xl.mx-auto.px-2.sm:px-6.lg:px-8
       .relative.flex.items-center.justify-between.h-16
         .absolute.inset-y-0.left-0.flex.items-center.sm:hidden
@@ -17,8 +17,8 @@
                 = link_to @page.about_title, "#about", "data-turbolinks": false, class: inactive
                 = link_to @page.services_title, "#services", "data-turbolinks": false, class: inactive
                 = link_to @page.projects_title, "#projects", "data-turbolinks": false, class: inactive
-              = link_to "Experience", "#", class: (action_name === "experience" ? active : inactive)
-              = link_to "Skills", "#", class: (action_name === "skills" ? active : inactive)
+              = link_to "Experience", experience_path, class: (action_name === "experience" ? active : inactive)
+              = link_to "Skills", skills_path, class: (action_name === "skills" ? active : inactive)
     .sm:hidden.hidden{ "data-navbar-target": "mobileMenu"}
       .px-2.pt-2.pb-3.space-y-1
         - active = "bg-manatee text-white block px-3 py-2 rounded-md"
@@ -28,5 +28,5 @@
           = link_to @page.about_title, "#about", "data-turbolinks": false, class: inactive
           = link_to @page.services_title, "#services", "data-turbolinks": false, class: inactive
           = link_to @page.projects_title, "#projects", "data-turbolinks": false, class: inactive
-        = link_to "Experience", "#", class: (action_name === "experience" ? active : inactive)
-        = link_to "Skills", "#", class: (action_name === "skills" ? active : inactive)
+        = link_to "Experience", experience_path, class: (action_name === "experience" ? active : inactive)
+        = link_to "Skills", skills_path, class: (action_name === "skills" ? active : inactive)
