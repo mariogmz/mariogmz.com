@@ -1,0 +1,5 @@
+.flex.py-3.items-center.space-x-6
+  %p{ class: "text-xl w-4/12 lg:w-3/12" }= skill.name
+  .space-x-3{ class: "w-8/12 lg:w-9/12" }
+    - skill.expertise.times do
+      = inline_svg_pack_tag "media/icons/admin/star.svg", class: "block h-6 w-6 xl:h-8 xl:w-8 text-yellow-300 inline"

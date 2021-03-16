@@ -1,0 +1,18 @@
+<!-- skills -->
+%section.bg-space-cadet.text-alice-blue.min-h-screen.flex.items-center.justify-center.relative.corner-top-left.corner-bottom-right.top-amaranth-red.bottom-amaranth-red.mt-16.py-16
+  .ziggy-top-left.alice-blue.inset
+  .ziggy-bottom-right.alice-blue.inset
+  .container.text-center.lg:text-left
+    %h2.mb-14 Skills
+    - @skills.each do |category, skill|
+      %h3.mt-6.mb-3= category
+      .grid.grid-cols-1.gap-0.md:grid-cols-2.md:gap-4.lg:grid-cols-3.text-left
+        = render skill
+
+    .flex.flex-col.lg:flex-row
+      %div
+        %h2.mb-14 Aptitudes
+        = render @soft_skills
+      %div
+        %h2.mb-14 Languages
+        = render @languages

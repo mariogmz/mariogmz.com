@@ -9,12 +9,19 @@ class HomeController < ApplicationController
   end
 
   def skills
+    @skills =  @profile.skills.order(expertise: :desc).group_by { |skill| skill.category.name }
+    @soft_skills = @profile.soft_skills
+    @languages = @profile.languages
   end
 
   private
 
   def set_page
-    @page = Page.active.includes(:services, :projects, { profile: [:user, :jobs] }).first
+    @page = Page.active.includes(
+      :services,
+      :projects,
+      { profile: [:user, :jobs, :soft_skills, :languages, { skills: :category }] }
+    ).first
     @profile = @page.profile if @page.present?
   end
 end

@@ -35,6 +35,10 @@
     @apply text-4xl md:text-6xl;
   }
 
+  h3 {
+    @apply text-xl md:text-3xl;
+  }
+
   p {
     @apply text-lg;
   }
