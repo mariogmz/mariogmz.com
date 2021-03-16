@@ -1,24 +1,5 @@
-# README
+# Mario Gómez 🍺 - Software Engineer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I built this Rails + Hotwire app to manage the contents of my personal website,
+you're pretty much welcome to use it, adapt it to your needs but always giving me
+the credits :)
