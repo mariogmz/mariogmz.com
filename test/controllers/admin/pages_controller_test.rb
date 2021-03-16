@@ -6,6 +6,7 @@ module Admin
   class PagesControllerTest < ControllerTest
     setup do
       @page = pages(:admin)
+      @page.update(active: false)
     end
 
     test "should get index" do

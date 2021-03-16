@@ -7,7 +7,7 @@ admin:
   projects_title: MyString
   contact_title: MyString
   contact_number: MyString
-  active: false
+  active: true
   profile: admin
 
 admin_two:
