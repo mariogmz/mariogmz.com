@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   private
 
   def set_page
-    @page = Page.active.includes(:services, :projects, { profile: :user }).first
+    @page = Page.active.includes(:services, :projects, { profile: [:user, :jobs] }).first
     @profile = @page.profile if @page.present?
   end
 end
