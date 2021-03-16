@@ -6,9 +6,9 @@
     - if @page.contact_image.attached? && @page.contact_image.representable?
       = image_tag url_for(@page.contact_image.variant(resize_to_limit: [800, 800])), class: "content-circle object-cover"
   .flex-1.flex.items-center.corner-top-right.top-amaranth-red.bg-space-cadet
-    .container.lg:space-y-12.p-6.lg:px-28
+    .container.lg:space-y-12.p-6.lg:px-28.text-center.lg:text-left
       %h2.text-amaranth-red= @page.contact_title
-      = image_pack_tag "media/images/ziggy-alice-blue.svg", class: "ziggy my-6"
+      = image_pack_tag "media/images/ziggy-alice-blue.svg", class: "ziggy my-6 mx-auto lg:mx-0"
       .text-center.lg:text-left
         %p.text-amaranth-red.text-bold Email address:
         = link_to @profile.user.email, "mailto:#{@profile.user.email}", class: "text-alice-blue text-lg"
