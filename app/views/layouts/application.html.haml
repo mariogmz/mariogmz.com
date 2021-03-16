@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Mario Gómez 🍺 - Software Engineer
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = render "partials/metas"
     = csrf_meta_tags
     = csp_meta_tag
     = javascript_pack_tag "application", "data-turbo-track": "reload"
