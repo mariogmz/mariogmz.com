@@ -150,4 +150,30 @@
   @media screen and (min-width: 768px) {
     width: 115px;
   }
+
+  &.small {
+    height: 15px;
+    width: 115px;
+  }
+}
+
+.job {
+  position: relative;
+
+  &::before {
+    background-image: url('images/ziggy-amaranth-red.svg');
+    background-repeat: no-repeat;
+    display: none;
+    content: '';
+    height: 15px;
+    left: -120px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 115px;
+
+    @media screen and (min-width: 1280px) {
+      display: block;
+    }
+  }
 }
