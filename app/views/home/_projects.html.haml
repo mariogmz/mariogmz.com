@@ -1,9 +1,9 @@
 <!-- projects -->
-%section.bg-amaranth-red.text-space-cadet.h-screen.flex.items-center.justify-center.relative.corner-top-left.top-space-cadet.corner-bottom-right.bottom-alice-blue.overflow-hidden{ id: "projects" }
+%section.bg-amaranth-red.text-space-cadet.flex.items-center.justify-center.relative.corner-top-left.top-space-cadet.corner-bottom-right.bottom-alice-blue.overflow-hidden.lg:h-screen{ id: "projects" }
   .ziggy-top-left.alice-blue.inset
   .ziggy-bottom-right.space-cadet.inset
-  .content-circle.big.brick-red
-  .container.max-h-screen.overflow-auto.py-12.z-10
+  .content-circle.big.brick-red.hidden.lg:block
+  .container.py-20.z-10
     %h2.text-center.mb-14.lg:mb-28= @page.projects_title
     .flex.items-center.justify-between.flex-col.space-y-6.lg:flex-row.lg:space-y-0
       = render @page.projects

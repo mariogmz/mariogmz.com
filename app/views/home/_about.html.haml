@@ -1,11 +1,12 @@
 <!-- about -->
-%section.h-screen.bg-space-cadet.text-alice-blue.z-10.relative.flex.flex-col.lg:flex-row{ id: "about" }
+%section.bg-space-cadet.text-alice-blue.relative.flex.flex-col.lg:flex-row.lg:h-screen{ id: "about" }
   .ziggy-top-center.amaranth-red
   .ziggy-bottom-center.amaranth-red
-  .flex-1.corner-top-left.top-amaranth-red.bg-alice-blue
+  .corner-top-left.top-amaranth-red.bg-alice-blue
     - if @page.about_image.attached?
-      = image_tag @page.about_image, class: "w-full max-h-screen-half h-full object-cover lg:max-h-none"
-  .flex-1.corner-bottom-right.bottom-amaranth-red.relative.overflow-hidden
-    .content-circle.flex.flex-col.items-center.justify-center.space-y-6.px-24
+      = image_tag @page.about_image, class: "w-full h-full max-h-screen-half object-cover lg:max-h-none"
+  .py-20.corner-bottom-right.bottom-amaranth-red.relative.overflow-hidden.flex.flex-col.items-center.justify-center.lg
+    .content-circle
+    .z-10.text-center.px-6.space-y-6
       %h2.font-spartan.text-amaranth-red= @page.about_title
-      %p.text-alice-blue.text-center= @page.summary
+      %p.text-alice-blue= @page.summary
