@@ -9,10 +9,12 @@
       .grid.grid-cols-1.gap-0.md:grid-cols-2.md:gap-4.lg:grid-cols-3.text-left
         = render skill
 
-    .flex.flex-col.lg:flex-row
+    .grid.grid-cols-1.gap-0.lg:grid-cols-2.lg:gap-4.mt-6
       %div
-        %h2.mb-14 Aptitudes
-        = render @soft_skills
+        %h2.text-center.my-6.lg:text-center.lg:my-0.lg:mb-8 I strive to be...
+        %ul.text-left
+          = render @soft_skills
       %div
-        %h2.mb-14 Languages
-        = render @languages
+        %h2.text-center.my-6.lg:text-center.lg:my-0.lg:mb-8 Languages
+        %ul.text-left
+          = render @languages
