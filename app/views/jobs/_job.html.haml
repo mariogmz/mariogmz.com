@@ -5,5 +5,5 @@
     %h3.text-xl.divide-x.divide-space-cadet
       %span.px-3= job.company_name
       %span.px-3= job.role
-    %h3.text-xl= "#{job.start_date.to_s(:long)} - #{job.end_date.present? ? job.end_date.to_s(:long) : "date" }"
+    %h3.text-xl= date_range(job.start_date, job.end_date)
     %p= job.description

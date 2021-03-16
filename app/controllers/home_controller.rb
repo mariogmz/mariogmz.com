@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   end
 
   def experience
+    @jobs = @profile.jobs.order(start_date: :desc, end_date: :desc)
   end
 
   def skills
